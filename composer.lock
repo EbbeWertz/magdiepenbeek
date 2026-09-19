@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3840c07c0c5f183ef0e887cf482f1eab",
+    "content-hash": "056757af51bb208aa17363fa03c36f9e",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -805,6 +805,56 @@
                 }
             ],
             "time": "2025-03-06T22:45:56+00:00"
+        },
+        {
+            "name": "eminos/statamic-iconify",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eminos/statamic-iconify.git",
+                "reference": "51c70f306a19674847c298141d4fff56326634de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eminos/statamic-iconify/zipball/51c70f306a19674847c298141d4fff56326634de",
+                "reference": "51c70f306a19674847c298141d4fff56326634de",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^10.0",
+                "pestphp/pest": "^3.8",
+                "statamic/cms": "^6.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "StatamicIconify\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Statamic Iconify",
+                    "description": "A Statamic addon to use Iconify icons in your Statamic site."
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "StatamicIconify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Statamic addon to use Iconify icons in your Statamic site.",
+            "support": {
+                "issues": "https://github.com/eminos/statamic-iconify/issues",
+                "source": "https://github.com/eminos/statamic-iconify/tree/v2.1.0"
+            },
+            "time": "2026-03-09T18:05:10+00:00"
         },
         {
             "name": "fruitcake/php-cors",

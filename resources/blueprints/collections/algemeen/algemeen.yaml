@@ -1,0 +1,31 @@
+title: Algemeen
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+          -
+            handle: homepage_foto
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Homepage foto'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

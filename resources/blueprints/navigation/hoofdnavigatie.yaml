@@ -1,0 +1,18 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: iconify_icon
+            field:
+              type: iconify
+              display: Icoontje
+              prefixes:
+                - fa7-regular
+              licenses:
+                - 'CC BY 4.0'
+              store_as: svg_data
+              validate:
+                - required

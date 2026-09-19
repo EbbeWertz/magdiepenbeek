@@ -1,0 +1,44 @@
+name: niet_igrec
+super: true
+avatar: averageinformaticales.jpeg
+id: 51279f56-efd1-4a7d-8fad-dec504fffda9
+password_hash: $2y$12$D/orlHbL6YDSujP4XIkRJuCjerIrMmYHHkm4xF4Rbykd5psxHspzy
+preferences:
+  collections:
+    pages:
+      view: tree
+    posts:
+      view: list
+  locale: nl
+  formatting_locale: nl
+  theme:
+    id: 26
+    name: 'SDNO 2026'
+    colors:
+      danger: '#DC2626'
+      body-bg: '#F1F5F9'
+      primary: '#075985'
+      success: '#16A34A'
+      switch-bg: '#CBD5E1'
+      content-bg: '#FFFFFF'
+      body-border: '#CBD5E1'
+      progress-bar: '#0891B2'
+      ui-accent-bg: '#E0F7FA'
+      focus-outline: '#0284C7'
+      content-border: '#D7E0E7'
+      ui-accent-text: '#075985'
+      global-header-bg: '#0F172A'
+      dark-danger: '#EF4444'
+      dark-body-bg: '#111117'
+      dark-primary: '#22D3EE'
+      dark-success: '#22C55E'
+      dark-switch-bg: '#164E63'
+      dark-content-bg: '#0C0D14'
+      dark-body-border: '#175C6A'
+      dark-progress-bar: '#22D3EE'
+      dark-ui-accent-bg: '#164E63'
+      dark-focus-outline: '#22D3EE'
+      dark-content-border: '#175C6A'
+      dark-ui-accent-text: '#23D3EE'
+      dark-global-header-bg: '#121F25'
+  color_mode: light

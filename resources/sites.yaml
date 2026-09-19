@@ -1,0 +1,5 @@
+default:
+  name: 'Mater Artes Gymnastica'
+  url: /
+  locale: '{{ config:app:locale }}'
+  lang: nl_BE

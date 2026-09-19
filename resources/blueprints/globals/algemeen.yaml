@@ -1,0 +1,35 @@
+title: Algemeen
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Home
+        fields:
+          -
+            handle: home_achtergrond
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Home Achtergrond'
+              validate:
+                - required
+          -
+            handle: homepage_foto
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Homepage Groepsfoto'
+              validate:
+                - required
+          -
+            handle: homepage_foto_caption
+            field:
+              type: text
+              display: 'Homepage Groepsfoto Caption'
+              validate:
+                - required

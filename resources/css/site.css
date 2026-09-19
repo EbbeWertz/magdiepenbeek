@@ -1,3 +1,90 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 @source "../views";
 @source "../../content";
+
+/* --- Font Definitions --- */
+@font-face {
+  font-family: 'Cabin Sketch';
+  src: url('../fonts/CabinSketch-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabin Sketch';
+  src: url('../fonts/CabinSketch-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Crayon Libre';
+  src: url('../fonts/CrayonLibre-BLVel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Crayon Libre';
+  src: url('../fonts/CrayonLibreItalic-8OVdB.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sniglet';
+  src: url('../fonts/Sniglet-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- Tailwind v4 Theme Extensions --- */
+@theme {
+  --font-chalk-hatched: 'Cabin Sketch', cursive, sans-serif;
+  --font-chalk-thin: 'Crayon Libre', cursive, sans-serif;
+  --font-cute: 'Sniglet', cursive, sans-serif;
+
+  --color-chalk-red: #fca5a5;
+  --color-chalk-blue: #93c5fd;
+  --color-chalk-white: #f3f4f6;
+  --color-chalk-yellow: #fef08a;
+}
+
+/* --- Custom Utilities & Effects --- */
+
+.chalk-texture {
+  filter: url(#chalk-filter);
+}
+
+.chalk-dust {
+  text-shadow: 0 0 2px rgba(255,255,255,0.6), 0 0 4px rgba(255,255,255,0.2);
+}
+
+.tape-top::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 40%;
+  width: 75px;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  transform: rotate(-2deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 20;
+}
+
+.tape-sticky::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 30%;
+  width: 50px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(200, 200, 200, 0.2);
+  transform: rotate(3deg);
+  z-index: 30;
+}
