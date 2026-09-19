@@ -33,3 +33,53 @@ tabs:
               display: 'Homepage Groepsfoto Caption'
               validate:
                 - required
+          -
+            handle: home_cta1_url
+            field:
+              type: link
+              display: 'Homepage knop 1'
+              validate:
+                - required
+          -
+            handle: home_cta1_label
+            field:
+              type: text
+              display: 'Homepage knop 1'
+              validate:
+                - required
+          -
+            handle: home_cta2_url
+            field:
+              type: link
+              display: 'Homepage knop 2'
+              validate:
+                - required
+          -
+            handle: home_cta2_label
+            field:
+              type: text
+              display: 'Homepage knop 2'
+              validate:
+                - required
+          -
+            handle: home_cta1_icon
+            field:
+              prefixes:
+                - fa7-regular
+                - fa7-solid
+              store_as: svg_data
+              type: iconify
+              display: 'Homepage Knop 1 Icon'
+              validate:
+                - required
+          -
+            handle: home_cta2_icon
+            field:
+              prefixes:
+                - fa7-regular
+                - fa7-solid
+              store_as: svg_data
+              type: iconify
+              display: 'Homepage Knop 2 Icon'
+              validate:
+                - required
