@@ -4,12 +4,25 @@
         perspective: 1200px;
         transform-style: preserve-3d;
         transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
-        box-shadow: -6px 10px 20px rgba(0, 0, 0, 0.35), inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.35), inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    @media (min-width: 768px) {
+        .book-cover {
+            box-shadow: -6px 10px 20px rgba(0, 0, 0, 0.35), inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+        }
     }
 
     .book-cover:hover {
-        transform: translateY(-6px) rotateY(-6deg) rotateX(3deg);
-        box-shadow: -12px 16px 28px rgba(0, 0, 0, 0.45), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+        transform: translateY(-4px) rotateY(-4deg) rotateX(2deg);
+        box-shadow: -8px 12px 20px rgba(0, 0, 0, 0.45), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    }
+
+    @media (min-width: 768px) {
+        .book-cover:hover {
+            transform: translateY(-6px) rotateY(-6deg) rotateX(3deg);
+            box-shadow: -12px 16px 28px rgba(0, 0, 0, 0.45), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+        }
     }
 
     /* Subtiele abstracte boekrug */
@@ -18,43 +31,65 @@
         top: 0;
         bottom: 0;
         left: 0;
-        width: 14px;
+        width: 10px;
         background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(0,0,0,0.2) 100%);
         border-right: 1px solid rgba(0, 0, 0, 0.3);
         z-index: 20;
     }
 
+    @media (min-width: 768px) {
+        .book-spine {
+            width: 14px;
+        }
+    }
+
     /* GRIJZE FOTOHOEKJES OP DE COVER */
     .metal-corner {
         position: absolute;
-        width: 16px;
-        height: 16px;
+        width: 10px;
+        height: 10px;
         z-index: 20;
         pointer-events: none;
     }
+
+    @media (min-width: 768px) {
+        .metal-corner {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    /* Vaste positionering per hoek (Mobiel & Desktop) */
     .metal-corner-tl {
-        top: -3px; left: -3px;
-        border-top: 3.5px solid #9ca3af;
-        border-left: 3.5px solid #9ca3af;
+        top: -2px; left: -2px;
+        border-top: 2.5px solid #9ca3af;
+        border-left: 2.5px solid #9ca3af;
         box-shadow: -1px -1px 2px rgba(0,0,0,0.4);
     }
     .metal-corner-tr {
-        top: -3px; right: -3px;
-        border-top: 3.5px solid #9ca3af;
-        border-right: 3.5px solid #9ca3af;
+        top: -2px; right: -2px;
+        border-top: 2.5px solid #9ca3af;
+        border-right: 2.5px solid #9ca3af;
         box-shadow: 1px -1px 2px rgba(0,0,0,0.4);
     }
     .metal-corner-bl {
-        bottom: -3px; left: -3px;
-        border-bottom: 3.5px solid #9ca3af;
-        border-left: 3.5px solid #9ca3af;
+        bottom: -2px; left: -2px;
+        border-bottom: 2.5px solid #9ca3af;
+        border-left: 2.5px solid #9ca3af;
         box-shadow: -1px 1px 2px rgba(0,0,0,0.4);
     }
     .metal-corner-br {
-        bottom: -3px; right: -3px;
-        border-bottom: 3.5px solid #9ca3af;
-        border-right: 3.5px solid #9ca3af;
+        bottom: -2px; right: -2px;
+        border-bottom: 2.5px solid #9ca3af;
+        border-right: 2.5px solid #9ca3af;
         box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+
+    @media (min-width: 768px) {
+        .metal-corner-tl { top: -3px; left: -3px; border-top-width: 3.5px; border-left-width: 3.5px; }
+        .metal-corner-tr { top: -3px; right: -3px; border-top-width: 3.5px; border-right-width: 3.5px; }
+        .metal-corner-bl { bottom: -3px; left: -3px; border-bottom-width: 3.5px; border-left-width: 3.5px; }
+        .metal-corner-br { bottom: -3px; right: -3px; border-bottom-width: 3.5px; border-right-width: 3.5px; }
     }
 
     /* DUBBELPAGINA OPENGESLAGEN BOEK (MODAL) */
@@ -84,8 +119,8 @@
     /* PLAKBANDJES OP DE FOTO'S */
     .photo-tape-tl, .photo-tape-tr {
         position: absolute;
-        width: 60px;
-        height: 20px;
+        width: 45px;
+        height: 15px;
         background-color: rgba(254, 243, 199, 0.75);
         border: 1px solid rgba(217, 119, 6, 0.3);
         backdrop-filter: blur(2px);
@@ -93,59 +128,72 @@
         z-index: 15;
         pointer-events: none;
     }
+
+    @media (min-width: 768px) {
+        .photo-tape-tl, .photo-tape-tr {
+            width: 60px;
+            height: 20px;
+        }
+    }
+
     .photo-tape-tl {
-        top: -8px;
-        left: -12px;
+        top: -6px;
+        left: -8px;
         transform: rotate(-15deg);
     }
     .photo-tape-tr {
-        top: -8px;
-        right: -12px;
+        top: -6px;
+        right: -8px;
         transform: rotate(15deg);
+    }
+
+    @media (min-width: 768px) {
+        .photo-tape-tl { top: -8px; left: -12px; }
+        .photo-tape-tr { top: -8px; right: -12px; }
     }
 </style>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-12">
+<div class="max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8 space-y-8 sm:space-y-12">
 
     <!-- HEADER -->
     <header class="text-center">
         <div class="inline-block relative">
-            <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
+            <h1 class="font-chalk-hatched text-3xl sm:text-4xl md:text-6xl font-bold tracking-wide">
                 <span class="text-chalk-red">Foto</span>
                 <span class="text-chalk-blue">Albums</span>
             </h1>
-            <p class="font-chalk-thin text-xl text-yellow-100 mt-2">
+            <p class="font-chalk-thin text-base sm:text-xl text-yellow-100 mt-1 sm:mt-2">
                 Herbeleef onze mooiste momenten!
             </p>
         </div>
     </header>
 
-    <!-- ALBUMS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+    <!-- ALBUMS GRID (2 KOLOMMEN OP MOBIEL) -->
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
 
         {{ collection:fotoalbums }}
-            <div class="album-card cursor-pointer group" data-album-id="{{ id }}">
+            <div class="album-card cursor-pointer group h-full" data-album-id="{{ id }}">
 
-                <!-- HET FOTOBOEK KAFT -->
-                <div class="book-cover relative w-full aspect-[4/3] bg-stone-700 rounded-r-md rounded-l-sm p-5 flex flex-col justify-between overflow-hidden border-t border-b border-r border-stone-600">
+                <!-- HET FOTOBOEK KAFT (Desktop hoger, Mobiel ietsje lager) -->
+                <div class="book-cover relative w-full h-full min-h-[180px] sm:min-h-[220px] md:min-h-[260px] bg-stone-700 rounded-r-md rounded-l-sm p-2.5 sm:p-4 md:p-5 flex flex-col justify-between overflow-hidden border-t border-b border-r border-stone-600">
 
                     <div class="book-spine"></div>
 
                     <!-- TITEL & DATUM DIRECT OP HET LEER -->
-                    <div class="relative z-10 ml-3 text-center pt-1">
-                        <h2 class="font-cute text-amber-50 text-xl md:text-2xl font-bold leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] tracking-wide">
+                    <div class="relative z-10 ml-2 sm:ml-3 text-center pt-0.5">
+                        <h2 class="font-cute text-amber-50 text-xs sm:text-lg md:text-2xl font-bold leading-tight sm:leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] tracking-wide line-clamp-3">
                             {{ title }}
                         </h2>
                         {{ if jaar }}
-                            <span class="font-chalk-thin text-amber-200/90 text-xs font-bold block mt-0.5 tracking-wider uppercase">
+                            <span class="font-chalk-thin text-amber-200/90 text-[10px] sm:text-xs font-bold block mt-0.5 tracking-wider uppercase">
                                 {{ maand ? '{{ maand }} ' : '' }}{{ jaar }}
                             </span>
                         {{ /if }}
                     </div>
 
                     <!-- COVER FOTO MET GRIJZE HOEKJES -->
-                    <div class="relative z-10 ml-3 my-auto">
-                        <div class="relative w-full aspect-[16/9] max-w-[200px] mx-auto bg-stone-900 p-1 rounded-sm shadow-lg border border-stone-800">
+                    <div class="relative z-10 ml-2 sm:ml-3 mt-1.5 mb-1">
+                        <div class="relative w-full aspect-[16/9] max-w-[125px] sm:max-w-[160px] md:max-w-[200px] mx-auto bg-stone-900 p-0.5 sm:p-1 rounded-sm shadow-lg border border-stone-800">
                             <div class="metal-corner metal-corner-tl"></div>
                             <div class="metal-corner metal-corner-tr"></div>
                             <div class="metal-corner metal-corner-bl"></div>
@@ -180,52 +228,53 @@
 </div>
 
 <!-- ========================================== -->
-<!-- BOEK MODAL (FULLSCREEN DUBBELPAGINA VIEW) -->
+<!-- BOEK MODAL (FULLSCREEN RESPONSIVE VIEW) -->
 <!-- ========================================== -->
-<div id="book-modal" class="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-md hidden flex items-center justify-center p-2 sm:p-6 transition-opacity duration-300">
+<div id="book-modal" class="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300">
 
     <!-- SLUITEN KNOP -->
-    <button id="close-modal-btn" type="button" class="absolute top-4 right-4 text-white hover:text-red-400 text-3xl z-50 p-2 transition-colors">
+    <button id="close-modal-btn" type="button" class="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-red-400 text-2xl sm:text-3xl z-50 p-2 transition-colors">
         <i class="fa-solid fa-xmark"></i>
     </button>
 
-    <div class="w-full max-w-6xl h-[85vh] max-h-[750px] flex flex-col justify-between">
+    <!-- CONTAINER MET SPATIE BOVEN (pt-12 op mobiel) VOOR DE CLOSE BUTTON -->
+    <div class="w-full max-w-6xl h-[88vh] sm:h-[85vh] max-h-[750px] pt-10 sm:pt-0 flex flex-col justify-between">
 
         <!-- OPENGESLAGEN FOTOBOEK -->
         <div class="book-spread relative w-full flex-1 bg-amber-50 rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 paper-border border border-amber-900/30">
 
             <div class="book-seam hidden md:block"></div>
 
-            <!-- LINKER PAGINA -->
-            <div class="relative h-full p-4 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-amber-900/10">
-                <div class="flex justify-between items-center border-b border-amber-900/20 pb-2">
-                    <h3 id="modal-album-title" class="font-cute text-stone-900 text-xl font-bold"></h3>
-                    <span id="modal-left-page-num" class="font-chalk-thin text-xs text-amber-900/70 font-bold"></span>
+            <!-- LINKER PAGINA (MOBIEL: ENKELE PAGINA VIEW) -->
+            <div id="modal-left-page-container" class="relative h-full p-3 sm:p-4 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-amber-900/10">
+                <div class="flex justify-between items-center border-b border-amber-900/20 pb-1 sm:pb-2">
+                    <h3 id="modal-album-title" class="font-cute text-stone-900 text-base sm:text-xl font-bold truncate max-w-[200px] sm:max-w-none"></h3>
+                    <span id="modal-left-page-num" class="font-chalk-thin text-[10px] sm:text-xs text-amber-900/70 font-bold"></span>
                 </div>
 
-                <div class="relative my-auto flex-1 flex items-center justify-center p-4">
-                    <div id="modal-left-photo-box" class="relative max-h-full max-w-full bg-white p-3 shadow-md rounded-sm border border-stone-200">
+                <div class="relative my-auto flex-1 flex items-center justify-center p-2 sm:p-4">
+                    <div id="modal-left-photo-box" class="relative max-h-full max-w-full bg-white p-2 sm:p-3 shadow-md rounded-sm border border-stone-200">
                         <div class="photo-tape-tl"></div>
                         <div class="photo-tape-tr"></div>
-                        <img id="modal-left-img" src="" alt="" class="max-h-[45vh] md:max-h-[50vh] max-w-full object-contain mx-auto rounded-sm">
-                        <p id="modal-left-caption" class="font-cute text-stone-800 text-center text-sm mt-2 empty:hidden"></p>
+                        <img id="modal-left-img" src="" alt="" class="max-h-[42vh] sm:max-h-[50vh] md:max-h-[50vh] max-w-full object-contain mx-auto rounded-sm">
+                        <p id="modal-left-caption" class="font-cute text-stone-800 text-center text-xs sm:text-sm mt-1 sm:mt-2 empty:hidden"></p>
                     </div>
                 </div>
             </div>
 
-            <!-- RECHTER PAGINA -->
-            <div class="relative h-full p-4 md:p-8 flex flex-col justify-between">
-                <div class="flex justify-between items-center border-b border-amber-900/20 pb-2">
-                    <span id="modal-album-date" class="font-chalk-thin text-xs text-amber-900/70 font-bold"></span>
-                    <span id="modal-right-page-num" class="font-chalk-thin text-xs text-amber-900/70 font-bold"></span>
+            <!-- RECHTER PAGINA (VERBORGEN OP MOBIEL) -->
+            <div id="modal-right-page-container" class="relative h-full p-3 sm:p-4 md:p-8 hidden md:flex flex-col justify-between">
+                <div class="flex justify-between items-center border-b border-amber-900/20 pb-1 sm:pb-2">
+                    <span id="modal-album-date" class="font-chalk-thin text-[10px] sm:text-xs text-amber-900/70 font-bold"></span>
+                    <span id="modal-right-page-num" class="font-chalk-thin text-[10px] sm:text-xs text-amber-900/70 font-bold"></span>
                 </div>
 
-                <div class="relative my-auto flex-1 flex items-center justify-center p-4">
-                    <div id="modal-right-photo-box" class="relative max-h-full max-w-full bg-white p-3 shadow-md rounded-sm border border-stone-200">
+                <div class="relative my-auto flex-1 flex items-center justify-center p-2 sm:p-4">
+                    <div id="modal-right-photo-box" class="relative max-h-full max-w-full bg-white p-2 sm:p-3 shadow-md rounded-sm border border-stone-200">
                         <div class="photo-tape-tl"></div>
                         <div class="photo-tape-tr"></div>
-                        <img id="modal-right-img" src="" alt="" class="max-h-[45vh] md:max-h-[50vh] max-w-full object-contain mx-auto rounded-sm">
-                        <p id="modal-right-caption" class="font-cute text-stone-800 text-center text-sm mt-2 empty:hidden"></p>
+                        <img id="modal-right-img" src="" alt="" class="max-h-[50vh] md:max-h-[50vh] max-w-full object-contain mx-auto rounded-sm">
+                        <p id="modal-right-caption" class="font-cute text-stone-800 text-center text-xs sm:text-sm mt-1 sm:mt-2 empty:hidden"></p>
                     </div>
                 </div>
             </div>
@@ -233,16 +282,18 @@
         </div>
 
         <!-- ONDERBALK MET ROUGHNOTATION BLADER-KNOPPEN -->
-        <div class="mt-4 flex items-center justify-between px-4 font-chalk-thin">
-            <button id="modal-prev-btn" type="button" class="inline-flex items-center gap-3 px-4 py-1.5 bg-transparent text-amber-100 text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
+        <div class="mt-4 flex items-center justify-between px-2 sm:px-4 font-chalk-thin">
+            <button id="modal-prev-btn" type="button" class="inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
                 <i class="fa-solid fa-arrow-left text-red-500"></i>
-                <span class="tracking-wide">Vorige pagina's</span>
+                <span class="tracking-wide hidden sm:inline">Vorige pagina's</span>
+                <span class="tracking-wide sm:hidden">Vorige</span>
             </button>
 
-            <span id="modal-spread-counter" class="text-white text-sm font-bold tracking-wider"></span>
+            <span id="modal-spread-counter" class="text-white text-xs sm:text-sm font-bold tracking-wider"></span>
 
-            <button id="modal-next-btn" type="button" class="inline-flex items-center gap-3 px-4 py-1.5 bg-transparent text-amber-100 text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
-                <span class="tracking-wide">Volgende pagina's</span>
+            <button id="modal-next-btn" type="button" class="inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
+                <span class="tracking-wide hidden sm:inline">Volgende pagina's</span>
+                <span class="tracking-wide sm:hidden">Volgende</span>
                 <i class="fa-solid fa-arrow-right text-sky-400"></i>
             </button>
         </div>

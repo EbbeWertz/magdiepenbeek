@@ -1,7 +1,6 @@
 import { annotate } from 'rough-notation';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Modal Elementen
     const modal = document.getElementById('book-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
     const albumCards = document.querySelectorAll('.album-card');
@@ -26,16 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentAlbum = null;
     let currentSpreadIndex = 0;
 
-    // RoughNotation instanties opslaan
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
+
     let prevAnnotation = null;
     let nextAnnotation = null;
 
-    // Initializeer RoughNotation Boxen voor de knoppen
     function initButtonAnnotations() {
         if (prevBtn && !prevAnnotation) {
             prevAnnotation = annotate(prevBtn, {
                 type: 'box',
-                color: '#ef4444', // Krijt rood
+                color: '#ef4444',
                 strokeWidth: 2,
                 padding: 4,
                 iterations: 2
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextBtn && !nextAnnotation) {
             nextAnnotation = annotate(nextBtn, {
                 type: 'box',
-                color: '#38bdf8', // Krijt blauw
+                color: '#38bdf8',
                 strokeWidth: 2,
                 padding: 4,
                 iterations: 2
@@ -52,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Update de zichtbaarheid/status van de box annotaties bij bladeren
     function updateAnnotations() {
         if (prevAnnotation) {
             if (prevBtn.disabled) {
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 1. OPEN ALBUM MODAL
     albumCards.forEach(card => {
         card.addEventListener('click', () => {
             const dataScript = card.querySelector('.album-data');
@@ -80,13 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
             currentSpreadIndex = 0;
 
             modalTitle.textContent = currentAlbum.title;
-            modalDate.textContent = currentAlbum.datum || '';
+            if (modalDate) modalDate.textContent = currentAlbum.datum || '';
 
             renderSpread();
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
 
-            // Teken de knop annotaties zodra de modal zichtbaar is
             setTimeout(() => {
                 initButtonAnnotations();
                 updateAnnotations();
@@ -94,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. SLUIT MODAL
     function closeModal() {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
@@ -110,49 +107,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. RENDER DUBBELPAGINA
     function renderSpread() {
         if (!currentAlbum || !currentAlbum.fotos) return;
 
-        const leftPhotoIndex = currentSpreadIndex * 2;
-        const rightPhotoIndex = leftPhotoIndex + 1;
         const totalFotos = currentAlbum.fotos.length;
+        const mobile = isMobile();
 
-        // Linker foto
-        if (leftPhotoIndex < totalFotos) {
-            const item = currentAlbum.fotos[leftPhotoIndex];
-            leftImg.src = item.url;
-            leftCaption.textContent = item.caption || '';
-            leftPageNum.textContent = `Pagina ${leftPhotoIndex + 1}`;
-            leftBox.style.visibility = 'visible';
+        if (mobile) {
+            const photoIndex = currentSpreadIndex;
+
+            if (photoIndex < totalFotos) {
+                const item = currentAlbum.fotos[photoIndex];
+                leftImg.src = item.url;
+                leftCaption.textContent = item.caption || '';
+                leftPageNum.textContent = `Pagina ${photoIndex + 1}`;
+                leftBox.style.visibility = 'visible';
+            } else {
+                leftBox.style.visibility = 'hidden';
+                leftPageNum.textContent = '';
+            }
+
+            spreadCounter.textContent = `${currentSpreadIndex + 1} / ${totalFotos}`;
+            prevBtn.disabled = (currentSpreadIndex === 0);
+            nextBtn.disabled = (currentSpreadIndex >= totalFotos - 1);
+
         } else {
-            leftBox.style.visibility = 'hidden';
-            leftPageNum.textContent = '';
+            const leftPhotoIndex = currentSpreadIndex * 2;
+            const rightPhotoIndex = leftPhotoIndex + 1;
+
+            if (leftPhotoIndex < totalFotos) {
+                const item = currentAlbum.fotos[leftPhotoIndex];
+                leftImg.src = item.url;
+                leftCaption.textContent = item.caption || '';
+                leftPageNum.textContent = `Pagina ${leftPhotoIndex + 1}`;
+                leftBox.style.visibility = 'visible';
+            } else {
+                leftBox.style.visibility = 'hidden';
+                leftPageNum.textContent = '';
+            }
+
+            if (rightPhotoIndex < totalFotos) {
+                const item = currentAlbum.fotos[rightPhotoIndex];
+                rightImg.src = item.url;
+                rightCaption.textContent = item.caption || '';
+                rightPageNum.textContent = `Pagina ${rightPhotoIndex + 1}`;
+                rightBox.style.visibility = 'visible';
+            } else {
+                rightBox.style.visibility = 'hidden';
+                rightPageNum.textContent = '';
+            }
+
+            const totalSpreads = Math.ceil(totalFotos / 2);
+            spreadCounter.textContent = `${currentSpreadIndex + 1} / ${totalSpreads}`;
+
+            prevBtn.disabled = (currentSpreadIndex === 0);
+            nextBtn.disabled = (currentSpreadIndex >= totalSpreads - 1);
         }
-
-        // Rechter foto
-        if (rightPhotoIndex < totalFotos) {
-            const item = currentAlbum.fotos[rightPhotoIndex];
-            rightImg.src = item.url;
-            rightCaption.textContent = item.caption || '';
-            rightPageNum.textContent = `Pagina ${rightPhotoIndex + 1}`;
-            rightBox.style.visibility = 'visible';
-        } else {
-            rightBox.style.visibility = 'hidden';
-            rightPageNum.textContent = '';
-        }
-
-        // Counter & Buttons
-        const totalSpreads = Math.ceil(totalFotos / 2);
-        spreadCounter.textContent = `${currentSpreadIndex + 1} / ${totalSpreads}`;
-
-        prevBtn.disabled = (currentSpreadIndex === 0);
-        nextBtn.disabled = (currentSpreadIndex >= totalSpreads - 1);
 
         updateAnnotations();
     }
 
-    // 4. NAVIGATIE ACTIES
+    window.addEventListener('resize', () => {
+        if (!modal.classList.contains('hidden') && currentAlbum) {
+            currentSpreadIndex = 0;
+            renderSpread();
+        }
+    });
+
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             if (currentSpreadIndex > 0) {
@@ -164,8 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            const totalSpreads = Math.ceil(currentAlbum.fotos.length / 2);
-            if (currentSpreadIndex < totalSpreads - 1) {
+            const mobile = isMobile();
+            const maxIndex = mobile
+                ? currentAlbum.fotos.length - 1
+                : Math.ceil(currentAlbum.fotos.length / 2) - 1;
+
+            if (currentSpreadIndex < maxIndex) {
                 currentSpreadIndex++;
                 renderSpread();
             }
