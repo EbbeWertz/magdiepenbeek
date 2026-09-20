@@ -1,0 +1,17 @@
+<nav class="w-full max-w-7xl mx-auto flex justify-between items-center py-4 border-b border-gray-800">
+    <a href="/" class="flex items-center gap-3">
+        <img src="/assets/images/schild.png" alt="MAG Schild" class="h-12 w-auto" />
+        <span class="font-cute text-xl font-bold tracking-wide text-chalk-white">Mater Artes Gymnastica</span>
+    </a>
+
+    <ul class="flex items-center gap-6 font-cute text-lg">
+        {{ nav:hoofdnavigatie }}
+        <li>
+            <a href="{{ url }}" class="text-gray-300 hover:text-chalk-yellow transition-colors inline-flex items-center gap-2">
+                {{ iconify:iconify_icon class="w-5 h-5" }}
+                <span>{{ title }}</span>
+            </a>
+        </li>
+        {{ /nav:hoofdnavigatie }}
+    </ul>
+</nav>

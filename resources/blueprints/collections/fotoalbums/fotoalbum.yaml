@@ -1,0 +1,53 @@
+title: Fotoalbum
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Cover
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: jaar
+            field:
+              type: text
+              display: Jaar
+          -
+            handle: maand
+            field:
+              type: text
+              display: Maand
+          -
+            handle: cover
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Cover Foto'
+      -
+        display: Inhoud
+        fields:
+          -
+            handle: fotos
+            field:
+              container: assets
+              type: assets
+              display: Fotos
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

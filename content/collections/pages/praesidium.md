@@ -1,10 +1,9 @@
 ---
-id: 368ce92f-428a-4152-97ac-927ace36058b
+id: a9c0481f-2b6c-45f5-b498-500b218817df
 blueprint: page
-title: Testpage2
+title: Praesidium
 author: 51279f56-efd1-4a7d-8fad-dec504fffda9
-template: default
+template: praesidium/index
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789077562
+updated_at: 1789902891
 ---
-waAAAAAAAAAAT

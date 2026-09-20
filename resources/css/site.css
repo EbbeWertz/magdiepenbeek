@@ -40,11 +40,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Paprika';
+  src: url('../fonts/Paprika-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* --- Tailwind v4 Theme Extensions --- */
 @theme {
   --font-chalk-hatched: 'Cabin Sketch', cursive, sans-serif;
   --font-chalk-thin: 'Crayon Libre', cursive, sans-serif;
   --font-cute: 'Sniglet', cursive, sans-serif;
+  --font-fancy: 'Paprika', serif;
 
   --color-chalk-red: #fca5a5;
   --color-chalk-blue: #93c5fd;

@@ -1,0 +1,84 @@
+title: Praesidium
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Praesidiumjaar
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: Jaar
+          -
+            handle: lustrum
+            field:
+              type: toggle
+              display: Lustrum
+          -
+            handle: lustrum_jaar
+            field:
+              type: text
+              display: 'Lustrum Leeftijd'
+      -
+        display: Groepsfoto
+        fields:
+          -
+            handle: foto
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Foto
+      -
+        display: Praesidiumleden
+        fields:
+          -
+            handle: ps_leden
+            field:
+              type: grid
+              display: 'PS Leden'
+              add_row: 'Lid Toevoegen'
+              mode: stacked
+              fields:
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: Naam
+                    validate:
+                      - required
+                -
+                  handle: clubnaam
+                  field:
+                    type: text
+                    display: 'Clubnaam (optioneel)'
+                -
+                  handle: functie
+                  field:
+                    type: text
+                    display: Functie
+                    validate:
+                      - required
+                -
+                  handle: foto
+                  field:
+                    container: assets
+                    max_files: 1
+                    type: assets
+                    display: Foto
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

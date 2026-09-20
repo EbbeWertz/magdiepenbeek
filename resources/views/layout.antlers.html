@@ -7,8 +7,59 @@
     <title>{{ title ?? 'Mater Artes Gymnastica' }} | MAG</title>
     <link rel="icon" type="image/x-icon" href="{{ asset:favicon.ico }}">
     {{ vite src="resources/css/site.css|resources/js/site.js" }}
+
+    <!-- RoughJS CDN -->
+    <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
+
+    <style>
+        /* Universele donkere krijtbordwand met subtiel stippenpatroon */
+        body.wall-bg {
+            background-color: #12161a;
+            background-image:
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.02) 1px, #0d1013 100%);
+            background-size: 24px 24px, 100% 100%;
+            background-attachment: fixed;
+        }
+
+        /* Custom scrollbar voor de archief sidebar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(245, 158, 11, 0.3);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(245, 158, 11, 0.6);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-900 text-gray-800 antialiased overflow-x-hidden">
-    {{ template_content }}
+<body class="wall-bg text-chalk-white antialiased min-h-screen flex flex-col font-cute overflow-x-hidden">
+
+    <!-- Header Block -->
+    {{ yield:header }}
+        <header class="p-4 sm:p-6 backdrop-blur-sm">
+            {{ partial:nav/default }}
+        </header>
+    {{ /yield:header }}
+
+    <!-- Main Content (Geen eigen achtergrond) -->
+    <main class="flex-1 w-full">
+        {{ template_content }}
+    </main>
+
+    <!-- Footer Block -->
+    {{ yield:footer }}
+        <footer class="border-t border-gray-800/60 py-6 text-center text-gray-400 text-sm bg-gray-950/50 backdrop-blur-sm">
+            <p>&copy; {{ now format="Y" }} Mater Artes Gymnastica</p>
+        </footer>
+    {{ /yield:footer }}
+
 </body>
+</html>

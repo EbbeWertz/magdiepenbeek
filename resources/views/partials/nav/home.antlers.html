@@ -1,0 +1,15 @@
+<nav class="w-full max-w-7xl mx-auto flex justify-between items-center h-[10vh] border-b border-dashed border-white/20 px-2">
+    <a href="/" class="h-full flex items-center py-1">
+        <img src="/assets/images/schild.png" alt="MAG Schild" class="h-full w-auto filter drop-shadow-md" />
+    </a>
+    <ul class="flex items-center gap-[2vw] font-chalk-thin italic text-[1.5vw] tracking-wide">
+        {{ nav:hoofdnavigatie }}
+        <li>
+            <a href="{{ url }}" class="text-chalk-white hover:text-amber-300 transition-colors inline-flex items-center gap-2">
+                {{ iconify:iconify_icon class="chalk-texture" }}
+                <span>{{ title }}</span>
+            </a>
+        </li>
+        {{ /nav:hoofdnavigatie }}
+    </ul>
+</nav>

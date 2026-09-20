@@ -9,6 +9,10 @@ preferences:
       view: tree
     posts:
       view: list
+    praesidium:
+      view: list
+    fotoalbums:
+      view: list
   locale: nl
   formatting_locale: nl
   theme:

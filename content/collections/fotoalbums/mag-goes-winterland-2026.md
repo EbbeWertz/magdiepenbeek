@@ -1,0 +1,48 @@
+---
+id: 773f5cde-ad2e-4af1-a81c-bc88e55c4cbb
+blueprint: fotoalbum
+title: 'MAG goes Winterland 2026'
+jaar: '2025'
+maand: Februari
+cover: 'images/albums/MAG schaatsen Winterland/Messenger_creation_47BBB13F-62B4-45B1-9C94-EEFEA3DA1AD4.jpeg'
+fotos:
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_4DBE5B07-71E3-4B2B-93DE-506306B9FEC2.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_5CC1A2F9-04BB-487B-B53B-7C26436B02CE.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_6FA68350-2B1F-4FCF-88F9-E92DEF8DD126.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_7A81F7D6-FBBB-4D8F-9FA7-D13BE25426CD.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_8D1B2173-EC03-4451-AED3-C133F36952C4.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_9AABE08A-15F3-46A5-A902-ABCDE3D16001.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_9BE44C9A-D84D-4917-8F9B-EA441B39D1C0.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_13B8C08F-8F5C-41B2-A107-713A3F19CB6D.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_23CFC742-A869-4182-975E-378D67A911AD.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_26D2E520-2C4D-4F09-927A-DECFB0EB14EA.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_40DB63E5-D244-4D79-A3FE-664A31B9D265.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_40DC9D68-B98E-4D3D-8250-658D81C4FCF9.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_47BBB13F-62B4-45B1-9C94-EEFEA3DA1AD4.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_58FCFB71-DFEB-4A44-929B-E8564439F0B3.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_75CDD729-6900-42E4-93A8-D2A199E55E5A.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_88D98A40-913D-47CA-8901-18A71E7DB49C.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_188A071B-2DB6-4D28-809C-58D8AB65EFD9.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_283F7F45-2FCE-4C12-A5D4-FE2E0C908D40.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_425E6DE7-F41F-40F0-982F-4426B53A72C2.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_454BB36F-F113-4011-89B9-57AF502036F9.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_764F444D-7EAB-4C1E-A82F-2256B91725FB.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_8730F605-79AF-49A7-98EE-B25653113D27.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_9077E544-4F54-49CE-8749-E1C847E99C4C.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_75873B90-D500-4EC4-8328-77FDAFB1706B.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_82459D62-BD13-47DD-BC6E-4ADFA9FCF975.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_84665F81-C30E-4693-AF4C-773FD106D3A4.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_335110A2-AE0C-4191-8E30-783D2705ABA0.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_5448123D-2C97-4A6B-AE26-000F7FB30FB8.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_A1810226-7D52-487E-B36D-21476B2B877B.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_B849CF66-10DC-4D8B-82F3-131B1003727D.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_D978C93B-D9E0-4918-9ADD-5CFAB224F32F.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_E86E75FA-3683-46D9-9573-8E8AB0122DC7.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_E062192D-F2C1-445A-9F43-8DAC60D0DFA6.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_E307594B-D0C4-4AA5-8191-92E69A95E152.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_EC5432BD-7DF8-4071-961F-A26ACBBE7688.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_F08B444A-3F05-47AE-878A-6F2A29BA2BFA.jpeg'
+  - 'images/albums/MAG schaatsen Winterland/Messenger_creation_FE0186CD-7567-4A2F-A353-410FF6059B46.jpeg'
+updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
+updated_at: 1789917086
+---

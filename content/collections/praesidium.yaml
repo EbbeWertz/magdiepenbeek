@@ -1,0 +1,15 @@
+title: Praesidium
+icon: groups
+template: praesidium/show
+layout: layout
+revisions: false
+route: '/praesidium/{title}'
+sort_dir: asc
+date_behavior:
+  past: null
+  future: null
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

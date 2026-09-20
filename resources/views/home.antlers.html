@@ -1,3 +1,4 @@
+{{ section:header }}
 <style>
     .bg-chalkboard {
         background-image: url({{algemeen:home_achtergrond}});
@@ -61,24 +62,7 @@
         <i class="fa-regular fa-heart"></i>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav
-        class="w-full max-w-7xl mx-auto flex justify-between items-center h-[10vh] border-b border-dashed border-white/20 px-2">
-        <a href="/" class="h-full flex items-center py-1">
-            <img src="/assets/images/schild.png" alt="MAG Schild" class="h-full w-auto filter drop-shadow-md" />
-        </a>
-        <ul class="flex items-center gap-[2vw] font-chalk-thin italic text-[1.5vw] tracking-wide">
-            {{ nav:hoofdnavigatie }}
-            <li>
-                <a href="{{ url }}"
-                    class="text-chalk-white hover:text-amber-300 transition-colors inline-flex items-center gap-2">
-                    {{ iconify:iconify_icon class="chalk-texture"}}
-                    <span>{{ title }}</span>
-                </a>
-            </li>
-            {{ /nav:hoofdnavigatie }}
-        </ul>
-    </nav>
+    {{ partial:nav/home }}
 
     <!-- MAIN GRID -->
     <div class="max-w-7xl mx-auto w-full h-[82vh] grid grid-cols-12 gap-6 items-center py-4">
@@ -138,7 +122,7 @@
             <div id="cta-container"
                 class="flex items-center gap-[2.5vw] font-chalk-thin italic text-[1.4vw] opacity-0 transition-opacity duration-300 pb-2">
                 <div class="relative inline-block">
-                    <a href="{{home_cta1_url}}" id="btn-lid"
+                    <a href="{{home_cta1_url}}" id="btn-lid" target="_blank"
                         class="inline-flex items-center gap-3 text-chalk-yellow px-5 py-2 transition-transform hover:scale-105 opacity-95">
                         {{ iconify:home_cta1_icon class="chalk-texture text-[1.5vw]" }}
                         <span>{{home_cta1_label}}</span>
@@ -146,7 +130,7 @@
                 </div>
 
                 <div class="relative inline-block">
-                    <a href="{{home_cta2_url}}" id="btn-events" target="_blank"
+                    <a href="{{home_cta2_url}}" id="btn-events"
                         class="inline-flex items-center gap-3 text-chalk-white px-5 py-2 transition-transform hover:scale-105 opacity-90">
                         {{ iconify:home_cta2_icon class="chalk-texture text-[1.5vw]" }}
                         <span>{{home_cta2_label}}</span>
@@ -175,3 +159,6 @@
 {{ /algemeen }}
     </div>
 </header>
+{{ /section:header }}
+
+<!-- Main content -->

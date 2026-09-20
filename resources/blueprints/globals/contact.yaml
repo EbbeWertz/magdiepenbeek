@@ -1,0 +1,39 @@
+title: 'Contact Info'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+              validate:
+                - required
+                - email
+          -
+            handle: adres
+            field:
+              type: text
+              display: Adres
+              validate:
+                - required
+          -
+            handle: facebook
+            field:
+              type: link
+              display: Facebook
+              validate:
+                - required
+          -
+            handle: instagram
+            field:
+              type: link
+              display: Instagram
+          -
+            handle: lidmaatschap
+            field:
+              type: link
+              display: 'Lidmaatschap url'

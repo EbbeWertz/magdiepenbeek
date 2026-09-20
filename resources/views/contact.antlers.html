@@ -1,0 +1,220 @@
+<style>
+    /* Organische, licht-onregelmatige randen voor de papieren kaarten */
+    .paper-border {
+        clip-path: polygon(
+            0.6% 0.8%,
+            99.1% 0.4%,
+            99.6% 99.1%,
+            0.4% 98.9%
+        );
+    }
+
+    /* Krijtbord vervorming & textuur toepassen op iconen */
+    .chalk-icon {
+        filter: url(#chalk-filter);
+    }
+
+    /* Tape styling geïnspireerd op homepage polaroids & notes */
+    .tape-sticky {
+        position: relative;
+    }
+    .tape-sticky::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-1.5deg);
+        width: 110px;
+        height: 28px;
+        background-color: rgba(254, 243, 199, 0.75);
+        border: 1px solid rgba(217, 119, 6, 0.25);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        z-index: 30;
+    }
+
+    /* Diagonaal MAG Hoeklint */
+    .corner-ribbon {
+        position: absolute;
+        top: 14px;
+        right: -32px;
+        transform: rotate(45deg);
+        width: 120px;
+        height: 18px;
+        background: linear-gradient(to bottom,
+                #ef4444 0%, #ef4444 33.5%,
+                #38bdf8 33%, #38bdf8 66.5%,
+                #ef4444 66%, #ef4444 100%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+        pointer-events: none;
+    }
+</style>
+
+<!-- SVG Chalk Filter Definitie (overgenomen uit homepage) -->
+<svg class="hidden">
+    <defs>
+        <filter id="chalk-filter" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </defs>
+</svg>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- HEADER: ROOD-BLAUW-ROOD KRIJT TITEL -->
+    <header class="text-center">
+        <div class="inline-block relative">
+            <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
+                <span class="text-chalk-red">Contact</span>
+                <span class="text-chalk-blue">&</span>
+                <span class="text-chalk-red">Info</span>
+            </h1>
+            <p class="font-chalk-thin text-xl text-yellow-100 mt-2">
+                Vragen, doop-info of lid worden? Laat van je horen!
+            </p>
+        </div>
+    </header>
+
+    <!-- GRID: INFO KAART & GOOGLE MAPS KAART -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
+
+        <!-- CONTACT INFO KAART (PAPIER STIJL) -->
+        <div class="lg:col-span-5 relative group tape-sticky -rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div class="relative w-full h-full bg-amber-50 p-6 md:p-8 shadow-[0_10px_25px_rgba(0,0,0,0.5)] paper-border flex flex-col justify-between">
+
+                <!-- MAG Hoeklint -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-sm">
+                    <div class="corner-ribbon"></div>
+                </div>
+
+                <div class="space-y-6 relative z-10">
+                    <h2 class="font-cute text-stone-900 text-3xl font-bold border-b border-amber-900/20 pb-3">
+                        Gegevens
+                    </h2>
+
+                    <div class="space-y-6 font-cute text-stone-800">
+                        {{# E-mail #}}
+                        {{ if contact:email }}
+                            <div id="contact-email-item" class="inline-flex items-center gap-4 pb-1">
+                                <div class="text-red-700 shrink-0 flex items-center justify-center w-8 h-8 relative chalk-icon">
+                                    <i class="fa-solid fa-envelope text-xl chalk-texture"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-chalk-thin uppercase tracking-wider text-amber-900/70">E-mailadres</span>
+                                    <a href="mailto:{{ contact:email }}" class="text-lg font-bold hover:text-red-700 transition-colors leading-none">
+                                        {{ contact:email }}
+                                    </a>
+                                </div>
+                            </div>
+                        {{ /if }}
+
+                        {{# Adres #}}
+                        {{ if contact:adres }}
+                            <div id="contact-adres-item" class="inline-flex items-start gap-4 pb-1">
+                                <div class="text-red-700 shrink-0 flex items-center justify-center w-8 h-8 relative mt-0.5 chalk-icon">
+                                    <i class="fa-solid fa-location-dot text-xl chalk-texture"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-chalk-thin uppercase tracking-wider text-amber-900/70">Adres</span>
+                                    <p class="text-lg font-bold leading-tight m-0 p-0">
+                                        {{ contact:adres | trim }}
+                                    </p>
+                                </div>
+                            </div>
+                        {{ /if }}
+                    </div>
+                </div>
+
+                {{# Sociale Media #}}
+                {{ if contact:facebook || contact:instagram }}
+                    <div class="pt-6 mt-6 border-t border-amber-900/20 relative z-10">
+                        <span class="block font-chalk-thin text-sm text-amber-900/80 mb-3">Volg ook onze socials:</span>
+                        <div class="flex flex-wrap items-center gap-4 font-cute">
+                            {{ if contact:facebook }}
+                                <a href="{{ contact:facebook }}" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 text-stone-900 hover:text-red-700 font-bold transition-colors">
+                                    <i class="fa-brands fa-facebook-f text-sky-600 chalk-icon"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            {{ /if }}
+
+                            {{ if contact:instagram }}
+                                <a href="{{ contact:instagram }}" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 text-stone-900 hover:text-red-700 font-bold transition-colors">
+                                    <i class="fa-brands fa-instagram text-pink-600 chalk-icon"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            {{ /if }}
+                        </div>
+                    </div>
+                {{ /if }}
+
+            </div>
+        </div>
+
+        <!-- GOOGLE MAPS KAART (PAPIER STIJL) -->
+        <div class="lg:col-span-7 relative group min-h-[380px] tape-sticky rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div class="relative w-full h-full bg-amber-50 p-3 shadow-[0_10px_25px_rgba(0,0,0,0.5)] paper-border">
+                <div class="w-full h-full min-h-[360px] overflow-hidden rounded border border-amber-900/20">
+                    {{ if contact:adres }}
+                        <iframe
+                            class="w-full h-full min-h-[360px] border-0 filter contrast-[1.02]"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps?q={{ contact:adres | urlencode }}&output=embed">
+                        </iframe>
+                    {{ else }}
+                        <div class="w-full h-full flex items-center justify-center font-cute text-stone-600">
+                            <p>Geen locatie opgegeven.</p>
+                        </div>
+                    {{ /if }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+ <!-- SECTIE: LIDMAATSCHAP -->
+<section class="relative group mt-6 tape-sticky rotate-[-0.5deg] md:rotate-[-0.5deg] hover:rotate-0 transition-transform duration-300">
+    <div class="relative w-full bg-amber-50 p-6 md:p-10 shadow-[0_12px_30px_rgba(0,0,0,0.6)] paper-border">
+
+        <!-- MAG Hoeklint -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-sm">
+            <div class="corner-ribbon"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6 text-stone-900 relative z-10">
+
+            <h2 class="font-cute text-3xl md:text-4xl font-bold leading-tight">
+                Lid worden?
+            </h2>
+
+            <p class="font-cute text-lg text-stone-800 leading-relaxed">
+                Een lidmaatschap bij <strong class="text-red-700">Mater Artes Gymnastica</strong> brengt enkel voordelen met zich mee. Als officieel lid krijg je gegarandeerd <strong class="underline decoration-sky-400 decoration-2">korting op al onze TD's</strong>.
+                Daarnaast krijg je de kans om je te laten <strong class="text-red-700">dopen</strong>, om je eigen <strong class="underline decoration-sky-400 decoration-2">MAG-lintje</strong> te krijgen!
+            </p>
+
+            {{ if contact:lidmaatschap }}
+                <div class="pt-4 flex justify-start">
+                    <a href="{{ contact:lidmaatschap }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       id="lidmaatschap-btn"
+                       class="inline-flex items-center gap-3 px-5 py-2.5 bg-transparent text-stone-900 font-chalk-thin text-xl font-bold transition-transform hover:scale-105">
+                        <i class="fa-solid fa-id-card text-red-700 text-2xl chalk-texture chalk-icon"></i>
+                        <span class="tracking-wide">Vraag hier je lidmaatschap aan</span>
+                        <i class="fa-solid fa-arrow-right text-base text-stone-700"></i>
+                    </a>
+                </div>
+            {{ /if }}
+
+        </div>
+    </div>
+</section>
+
+</div>
+
+{{ vite src="resources/js/contact.js" }}
