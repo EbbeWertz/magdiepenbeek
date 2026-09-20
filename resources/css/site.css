@@ -57,7 +57,7 @@
   --color-chalk-red: #fca5a5;
   --color-chalk-blue: #93c5fd;
   --color-chalk-white: #f3f4f6;
-  --color-chalk-yellow: #fef08a;
+  --color-chalk-yellow: oklch(96.2% 0.059 95.617);
 }
 
 /* --- Custom Utilities & Effects --- */

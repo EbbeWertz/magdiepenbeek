@@ -1,0 +1,334 @@
+<style>
+    /* Organische, licht-onregelmatige randen */
+    .polaroid-border {
+        clip-path: polygon(0.5% 1%, 99.2% 0.3%, 98.8% 99.4%, 0.8% 98.7%);
+    }
+
+    .paper-border {
+        clip-path: polygon(0.6% 0.8%, 99.1% 0.4%, 99.6% 99.1%, 0.4% 98.9%);
+    }
+
+    /* Plakbandje bovenaan (Tape) */
+    .tape-top::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-1.5deg);
+        width: 100px;
+        height: 26px;
+        background-color: rgba(254, 243, 199, 0.65);
+        border: 1px solid rgba(217, 119, 6, 0.3);
+        backdrop-filter: blur(1.5px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 30;
+    }
+
+    /* Krijtbord vervorming op iconen */
+    .chalk-icon {
+        filter: url(#chalk-filter);
+    }
+
+    /* Gelijnd papier achtergrond voor het lied */
+    .lined-paper {
+        background-color: #fffbeb;
+        /* amber-50 */
+        background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+        background-size: 100% 1.85rem;
+        /* Aangepaste lijn-afstand voor kleinere tekst */
+        line-height: 1.85rem;
+        /* Zorgt dat elke regel netjes op 1 lijn staat */
+    }
+</style>
+
+<!-- SVG Chalk Filter Definitie -->
+<svg class="hidden">
+    <defs>
+        <filter id="chalk-filter" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </defs>
+</svg>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-16">
+
+    <!-- TERUG KNOP -->
+    <div>
+        <a href="/"
+            class="inline-flex items-center gap-2 font-chalk-thin text-chalk-yellow hover:text-chalk-yellow transition-colors text-xl group">
+            <i class="fa-solid fa-arrow-left text-base group-hover:-translate-x-1 transition-transform chalk-icon"></i>
+            <span>Terug naar home</span>
+        </a>
+    </div>
+
+    <!-- HEADER: KRIJT TITEL IN ROOD-BLAUW-ROOD -->
+    <header class="text-center">
+        <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
+            <span class="text-chalk-red">Over</span> <span class="text-chalk-blue">Onze</span> <span
+                class="text-chalk-red">Vereniging</span>
+        </h1>
+        <p class="font-chalk-thin text-chalk-yellow text-xl mt-2">
+            Alles over onze geschiedenis, tradities en symbolen
+        </p>
+    </header>
+
+    <!-- SECTIE 1: ALGEMEEN & FACULTEIT (BRIEFJE LINKS | KRIJT RECHTS) -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- LINKS: PAPIEREN BRIEFJE -->
+        <div class="lg:col-span-7 relative pt-4">
+            <div class="relative group tape-top -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <div
+                    class="relative w-full bg-amber-50 p-6 md:p-8 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
+                    <h2 class="font-cute text-stone-900 text-3xl font-bold border-b border-amber-900/20 pb-2">
+                        Wie zijn wij?
+                    </h2>
+                    <p class="font-cute text-stone-800 text-lg leading-relaxed">
+                        <strong class="font-bold text-red-800">Mater Artes Gymnastica (MAG)</strong> is de officiële
+                        studentenvereniging verbonden aan de <span id="rn-ucll" class="font-bold">UCLL-lerarenopleiding
+                            secundair onderwijs</span> te Diepenbeek.
+                    </p>
+                    <p class="font-cute text-stone-800 text-lg leading-relaxed">
+                        Onze missie is tweevoudig: enerzijds ondersteunen we studenten bij hun studies met
+                        samenvattingen, examenhulp en vakoverrijpende samenwerking. Anderzijds laten we hen proeven van
+                        een onvergetelijk studentenleven via culturele, sportieve en speelse activiteiten.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECHTS: KRIJT TEKST MET ROUGHNOTATION BOX -->
+        <div class="lg:col-span-5 font-chalk-thin text-chalk-yellow space-y-6 text-xl md:text-2xl px-2">
+            <p>
+                Bij MAG geloven we dat je studententijd de mooiste tijd van je leven moet zijn.
+            </p>
+            <div class="py-2 text-center">
+                <p id="rn-motto" class="font-chalk-hatched text-chalk-blue text-2xl md:text-3xl inline-block px-4 py-2">
+                    "Samen ontspannen na de inspanning!"
+                </p>
+            </div>
+            <p class="text-lg text-chalk-yellow">
+                We brengen studenten van alle onderwijsvakken samen, zodat je vrienden maakt buiten je eigen klas.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- SECTIE 2: SYMBOLIEK & SCHILD -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pt-8">
+
+        <!-- LINKS: POLAROID MET AFBEELDING VAN HET SCHILD -->
+        <div class="lg:col-span-5 pt-4">
+            <div class="relative group w-full">
+                <div class="relative tape-top rotate-2 hover:rotate-0 transition-all duration-300">
+                    <div class="bg-amber-50 p-4 pb-6 shadow-[0_15px_35px_rgba(0,0,0,0.6)] polaroid-border">
+                        <div class="w-full bg-white p-4 border border-stone-200 flex justify-center items-center">
+                            <img src="/assets/images/schild.png" alt="Het schild van MAG"
+                                class="max-h-80 w-auto object-contain">
+                        </div>
+                        <p class="font-cute text-center text-stone-800 text-xl font-bold mt-3">
+                            Het MAG Schild
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECHTS: UITLEG SYMBOLIEK -->
+        <div class="lg:col-span-7">
+            <div class="relative group tape-top rotate-1 hover:rotate-0 transition-transform duration-300 pt-2">
+                <div
+                    class="relative w-full bg-amber-50 p-6 md:p-8 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
+
+                    <h2 class="font-cute text-stone-900 text-3xl font-bold border-b border-amber-900/20 pb-2">
+                        Symboliek
+                    </h2>
+
+                    <div class="space-y-4 font-cute text-stone-800 text-lg leading-relaxed">
+
+                        <!-- EERSTE ALINEA + MONOGRAM MET ID'S VOOR ROUGHNOTATION -->
+                        <p>
+                            Aan de rechterzijde van het schild prijkt ons monogram, zoals je van echte leraars mag
+                            verwachten:
+                            <span id="rn-lijntjes" class="font-semibold text-stone-900">keurig binnen de
+                                lijntjes</span>.
+                        </p>
+
+                        <!-- HET ONTWERP & VCF / MAG EXPLICATIE -->
+                        <div class="pl-4 border-l-2 border-stone-300 space-y-2 my-3">
+                            <p>
+                                Het ontwerp begint met de traditionele samenvoeging van de letters
+                                <strong id="rn-vcf" class="font-bold text-red-800">VCF</strong> (<em>Vivat, Crescat et
+                                    Floreat</em>),
+                                waarachter de letters <strong id="rn-mag" class="font-bold text-red-800">M, A en G</strong>
+                                creatief door elkaar verweven zijn.
+                            </p>
+
+                            <p class="text-base text-stone-600 italic">
+                                (Je moet soms even goed turen om ze allemaal te herkennen!)
+                            </p>
+
+                            <p class="text-base text-stone-900 pt-1">
+                                Voluit staat dit voor <em>"Ut Vivat, Crescat et Floreat Mater Artes Gymnastica"</em>,
+                                oftewel:
+                                <span id="rn-spreuk" class="font-bold">"Moge Mater Artes Gymnastica leven, groeien en
+                                    bloeien!"</span>
+                            </p>
+                        </div>
+
+                        <!-- ONDERSTEBOVEN LO EN ORIGIN -->
+                        <p>
+                            Wanneer je het monogram ondersteboven draait, verschijnen bovendien de letters
+                            <strong id="rn-lo" class="font-bold text-red-800">L en O</strong>.
+                            Dit vormt een historische knipoog naar onze oorsprong als vereniging voor studenten
+                            Lichamelijke Opvoeding.
+                        </p>
+
+                        <!-- LEUZE ONDERAAN -->
+                        <p class="pt-2">
+                            Onderaan het schild prijkt ten slotte onze officiële verenigingsleuze:
+                            <span id="rn-leuze" class="font-bold text-red-800 italic text-xl">"Studens, totaliter
+                                ludens"</span>,
+                            wat Latijn is voor <em>"Al spelend leren!"</em>.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- SECTIE 3: HET MAG-LIED (GELIJND PAPIERBLAD) -->
+    <section class="space-y-6 pt-8 border-t border-amber-100/10">
+        <div class="text-center space-y-2">
+            <h2 class="font-chalk-hatched text-4xl md:text-5xl text-chalk-red">Het MAG-Lied</h2>
+        </div>
+
+        <div class="max-w-xl mx-auto pt-4">
+            <div class="relative group tape-top -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <!-- AANGEPAST: text-base md:text-lg i.p.v. text-xl md:text-2xl -->
+                <div
+                    class="relative w-full lined-paper p-6 md:p-8 pt-4 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border font-cute text-stone-800 text-base md:text-lg">
+
+                    <!-- TEKST BOVENAAN LINKS -->
+                    <div class="text-stone-500 text-xs md:text-sm border-b border-amber-900/20 pb-2 mb-3 leading-tight">
+                        Geschreven door Wout Willems (1995)<br>
+                        <span class="italic">Wijze: "Ik ben een boemelaar"</span>
+                    </div>
+
+                    <!-- STROFE 1 -->
+                    <div class="space-y-0">
+                        <p>Wij geven les in 't regentaat joedeladeliedelee</p>
+                        <p>Maar voor elk feest staan wij paraat joedeladeliedelee</p>
+                        <p>Wij drinken 's avonds liters bier joedeladeliedelee</p>
+                        <p>Want voor ons telt alleen plezier joedeladeliedelee</p>
+                    </div>
+
+                    <!-- REFREIN -->
+                    <div class="my-3 font-bold text-red-800 space-y-0">
+                        <p id="rn-refrein" class="inline-block">(Refrein)</p>
+                        <p>Hier is Gymnastica (2x)</p>
+                        <p>Wij zijn weer op de zwier</p>
+                        <p>Op zoek naar meer vertier</p>
+                        <p>Ja zie je onze vaan</p>
+                        <p>Sluit dan het vat maar aan</p>
+                        <p>Wij worden topleraars</p>
+                        <p>Dat zie je zo.</p>
+                    </div>
+
+                    <!-- STROFE 2 -->
+                    <div class="space-y-0">
+                        <p>Wij zitten braafjes in de les, joedeladeliedelee</p>
+                        <p>Maar daarna openen wij de fles, joedeladeliedelee</p>
+                        <p>Zelfs als ik ooit echt leraar word, joedeladeliedelee</p>
+                        <p>Dan blijft heffen mijn grootste sport, joedeladeliedelee</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTIE 4: GESCHIEDENIS, OPRICHTERS & HEROPRICHTERS -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-8 border-t border-amber-100/10">
+
+        <!-- LINKS: PAPIEREN BRIEFJE GESCHIEDENIS -->
+        <div class="lg:col-span-7 pt-4">
+            <div class="relative group tape-top -rotate-1 hover:rotate-0 transition-transform duration-300">
+                <div
+                    class="relative w-full bg-amber-50 p-6 md:p-8 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-6">
+
+                    <h2 class="font-cute text-stone-900 text-3xl font-bold border-b border-amber-900/20 pb-2">
+                        Onze Geschiedenis
+                    </h2>
+
+                    <!-- OPRICHTING -->
+                    <div class="space-y-2 font-cute text-stone-800 text-lg">
+                        <h3 class="text-xl font-bold text-red-800">15 September 1995: Oprichting</h3>
+                        <p>
+                            MAG werd opgericht in café <em>'den Ambi'</em> door een enthousiaste groep LO-studenten.
+                            Onze verjaardag (dies natalis) is sindsdien officieel <span id="rn-dies"
+                                class="font-bold">15 september</span>!
+                        </p>
+                        <p class="text-base text-stone-700 italic">
+                            Stichtend praesidium: Ief Van Gompel (eerste Pro-Senior ooit!), Wout Willems, Ann Craegs,
+                            Koen Boonen, Greet van Nieuwenhuizer, Tom Buermans, Johan Van Beek (Piewie), Liesbeth
+                            Tessens en Christophe Jorissen.
+                        </p>
+                    </div>
+
+                    <!-- HEROPRICHTING -->
+                    <div class="space-y-2 font-cute text-stone-800 text-lg border-t border-amber-900/20 pt-4">
+                        <h3 class="text-xl font-bold text-red-800">2010: De Heroprichting</h3>
+                        <p>
+                            Nadat de vereniging in december 2008 helaas werd ontbonden, bliezen <strong
+                                class="font-bold">Glenn Eerdekens</strong> en <strong class="font-bold">Heleen
+                                Vranken</strong> in 2010 MAG nieuw leven in voor onbepaalde duur. Sinds die dag is de
+                            vereniging niet meer weg te denken uit Diepenbeek!
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RECHTS: POLAROID EN KRIJT INFO -->
+        <div class="lg:col-span-5 space-y-8 pt-4">
+
+            <!-- POLAROID CAFÉ DEN AMBI -->
+            <div class="relative group w-full">
+                <div class="relative tape-top rotate-2 hover:rotate-0 transition-all duration-300">
+                    <div class="bg-amber-50 p-3 md:p-4 pb-5 shadow-[0_15px_35px_rgba(0,0,0,0.6)] polaroid-border">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden bg-stone-900/10 flex justify-center items-center">
+                            <img src="/assets/images/cafe_den_ambi.png" alt="Café den Ambi"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-cute text-center text-stone-800 text-lg font-bold mt-2">
+                            Café 'den Ambi'
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KRIJT TEKST MEER INFO -->
+            <div class="font-chalk-thin text-chalk-yellow text-xl space-y-3 px-2">
+                <p>
+                    Oorspronkelijk was MAG uitsluitend voor LO-studenten, maar groeide al snel uit tot de thuisbasis
+                    voor <span id="rn-iedereen" class="font-bold">alle vakken</span> van de lerarenopleiding.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{{ vite src="resources/js/about.js" }}
