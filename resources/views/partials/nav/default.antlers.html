@@ -1,23 +1,59 @@
-<nav class="w-full max-w-7xl mx-auto flex justify-between items-center py-4 border-b border-gray-800">
-    <a href="/" class="flex items-center gap-3">
-        <img src="/assets/images/schild.png" alt="MAG Schild" class="h-12 w-auto" />
-        <span class="font-cute text-xl font-bold tracking-wide text-chalk-white">Mater Artes Gymnastica</span>
-    </a>
+<nav class="w-full max-w-7xl mx-auto py-4 border-b border-gray-800">
+    <div class="flex justify-between items-center">
+        <!-- Logo + Naam -->
+        <a href="/" class="flex items-center gap-3">
+            <img src="/assets/images/schild.png" alt="MAG Schild" class="h-10 sm:h-12 w-auto" />
+            <span class="font-cute text-lg sm:text-xl font-bold tracking-wide text-chalk-white leading-tight">
+                Mater Artes Gymnastica
+            </span>
+        </a>
 
-    <ul class="flex items-center gap-6 font-cute text-lg">
-        {{ nav:hoofdnavigatie }}
-        <li>
-            <a href="{{ url }}"
-               class="transition-colors inline-flex items-center gap-2 relative py-1
-                      {{ if is_current || is_parent }}
-                          text-chalk-yellow font-bold border-b-2 border-gray-400
-                      {{ else }}
-                          text-gray-300 hover:text-chalk-yellow
-                      {{ /if }}">
-                {{ iconify:iconify_icon class="w-5 h-5" }}
-                <span>{{ title }}</span>
-            </a>
-        </li>
-        {{ /nav:hoofdnavigatie }}
-    </ul>
+        <!-- Hamburger / Sluit knop (JS Toggle) -->
+        <button id="nav-toggle-default"
+                type="button"
+                class="md:hidden text-gray-300 hover:text-chalk-yellow focus:outline-none p-2 text-2xl transition-colors"
+                aria-label="Toggle navigatie"
+                aria-expanded="false">
+            <i class="fa-solid fa-bars nav-icon"></i>
+        </button>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center gap-6 font-cute text-base lg:text-lg">
+            {{ nav:hoofdnavigatie }}
+            <li>
+                <a href="{{ url }}"
+                   class="transition-colors inline-flex items-center gap-2 relative py-1
+                          {{ if is_current || is_parent }}
+                              text-chalk-yellow font-bold border-b-2 border-gray-400
+                          {{ else }}
+                              text-gray-300 hover:text-chalk-yellow
+                          {{ /if }}">
+                    {{ iconify:iconify_icon class="w-5 h-5" }}
+                    <span>{{ title }}</span>
+                </a>
+            </li>
+            {{ /nav:hoofdnavigatie }}
+        </ul>
+    </div>
+
+    <!-- Mobiel Uitklapmenu (Accordion met CSS Grid Animation) -->
+    <div id="nav-menu-default"
+         class="md:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+        <div class="overflow-hidden">
+            <div class="pt-4 mt-4 border-t border-gray-800/60 flex flex-col gap-2 font-cute text-lg">
+                {{ nav:hoofdnavigatie }}
+                <a href="{{ url }}"
+                   class="px-3 py-2 rounded-md transition-colors flex items-center gap-3
+                          {{ if is_current || is_parent }}
+                              text-chalk-yellow font-bold bg-white/5
+                          {{ else }}
+                              text-gray-300 hover:text-chalk-yellow hover:bg-white/5
+                          {{ /if }}">
+                    {{ iconify:iconify_icon class="w-5 h-5" }}
+                    <span>{{ title }}</span>
+                </a>
+                {{ /nav:hoofdnavigatie }}
+            </div>
+        </div>
+    </div>
 </nav>

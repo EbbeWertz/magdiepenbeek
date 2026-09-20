@@ -1,15 +1,44 @@
-<nav class="w-full max-w-7xl mx-auto flex justify-between items-center h-[10vh] border-b border-dashed border-white/20 px-2">
-    <a href="/" class="h-full flex items-center py-1">
-        <img src="/assets/images/schild.png" alt="MAG Schild" class="h-full w-auto filter drop-shadow-md" />
-    </a>
-    <ul class="flex items-center gap-[2vw] font-chalk-thin italic text-[1.5vw] tracking-wide">
-        {{ nav:hoofdnavigatie }}
-        <li>
-            <a href="{{ url }}" class="text-chalk-white hover:text-amber-300 transition-colors inline-flex items-center gap-2">
-                {{ iconify:iconify_icon class="chalk-texture" }}
-                <span>{{ title }}</span>
-            </a>
-        </li>
-        {{ /nav:hoofdnavigatie }}
-    </ul>
+<nav class="w-full max-w-7xl mx-auto border-b border-dashed border-white/20 px-2 py-3 md:py-0 md:h-[10vh]">
+    <div class="flex justify-between items-center h-full">
+        <!-- Logo -->
+        <a href="/" class="h-12 md:h-full flex items-center py-1">
+            <img src="/assets/images/schild.png" alt="MAG Schild" class="h-full w-auto filter drop-shadow-md" />
+        </a>
+
+        <!-- Hamburger / Sluit knop (JS Toggle) -->
+        <button id="nav-toggle-home"
+                type="button"
+                class="md:hidden text-chalk-white hover:text-amber-300 p-2 text-2xl focus:outline-none transition-colors"
+                aria-label="Toggle navigatie"
+                aria-expanded="false">
+            <i class="fa-solid fa-bars nav-icon"></i>
+        </button>
+
+        <!-- Desktop Menu (Krijtstijl) -->
+        <ul class="hidden md:flex items-center gap-[2vw] font-chalk-thin italic text-lg lg:text-[1.5vw] tracking-wide">
+            {{ nav:hoofdnavigatie }}
+            <li>
+                <a href="{{ url }}" class="text-chalk-white hover:text-amber-300 transition-colors inline-flex items-center gap-2">
+                    {{ iconify:iconify_icon class="chalk-texture" }}
+                    <span>{{ title }}</span>
+                </a>
+            </li>
+            {{ /nav:hoofdnavigatie }}
+        </ul>
+    </div>
+
+    <!-- Mobiel Uitklapmenu (Accordion met CSS Grid Animation) -->
+    <div id="nav-menu-home"
+         class="md:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+        <div class="overflow-hidden">
+            <div class="pt-3 mt-3 border-t border-dashed border-white/10 flex flex-col gap-1 font-chalk-thin italic text-xl">
+                {{ nav:hoofdnavigatie }}
+                <a href="{{ url }}" class="px-2 py-2 text-chalk-white hover:text-amber-300 transition-colors inline-flex items-center gap-3">
+                    {{ iconify:iconify_icon class="chalk-texture" }}
+                    <span>{{ title }}</span>
+                </a>
+                {{ /nav:hoofdnavigatie }}
+            </div>
+        </div>
+    </div>
 </nav>

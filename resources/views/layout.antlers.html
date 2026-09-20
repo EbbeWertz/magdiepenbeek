@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title ?? 'Mater Artes Gymnastica' }} | MAG</title>
     <link rel="icon" type="image/x-icon" href="{{ asset:favicon.ico }}">
-    {{ vite src="resources/css/site.css|resources/js/site.js" }}
 
-    <!-- RoughJS CDN -->
-    <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
+    {{ vite src="resources/css/site.css|resources/js/site.js" }}
 
     <style>
         /* Universele donkere krijtbordwand met subtiel stippenpatroon */
@@ -47,30 +45,29 @@
 
     <!-- Header Block -->
     {{ yield:header }}
-    <header class="p-4 sm:p-6 backdrop-blur-sm">
+    <header class="p-3 sm:p-4 md:p-6 backdrop-blur-sm">
         {{ partial:nav/default }}
     </header>
     {{ /yield:header }}
 
-    <!-- Main Content (Geen eigen achtergrond) -->
-    <main class="flex-1 w-full">
+    <!-- Main Content -->
+    <main class="flex-1 w-full px-4 sm:px-6 md:px-8">
         {{ template_content }}
     </main>
 
     <!-- Footer Block -->
     {{ yield:footer }}
-    <footer
-        class="border-t border-amber-100/10 py-10 bg-stone-950/60 backdrop-blur-sm text-stone-400 font-cute text-base">
+    <footer class="border-t border-amber-100/10 py-8 md:py-10 bg-stone-950/60 backdrop-blur-sm text-stone-400 font-cute text-base mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
 
             <!-- KOLOM 1: INFO & OPRICHTING -->
             <div class="space-y-2">
                 <h3 class="font-chalk-hatched text-chalk-red text-xl tracking-wide">Mater Artes Gymnastica</h3>
-                <p class="text-stone-300">
+                <p class="text-stone-300 text-sm sm:text-base">
                     De officiële studentenvereniging van de UCLL Lerarenopleiding Secundair Onderwijs Diepenbeek.
                 </p>
-                <p class="text-chalk-yellow text-sm pt-1">
-                    <i class="fa-solid fa-flag text-xs mr-1"></i> Opgericht op 15 september 1995
+                <p class="text-chalk-yellow text-xs sm:text-sm pt-1">
+                    <i class="fa-solid fa-flag mr-1"></i> Opgericht op 15 september 1995
                 </p>
             </div>
 
@@ -78,12 +75,11 @@
             <div class="space-y-2">
                 <h3 class="font-chalk-hatched text-chalk-blue text-xl tracking-wide">Contact & Locatie</h3>
                 {{ contact }}
-                <p class="text-stone-300">
-                    <i class="fa-solid fa-location-dot mr-2 text-chalk-yellow"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590
-                    Diepenbeek' }}
+                <p class="text-stone-300 text-sm sm:text-base">
+                    <i class="fa-solid fa-location-dot mr-2 text-chalk-yellow"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590 Diepenbeek' }}
                 </p>
-                <p>
-                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-chalk-yellow transition-colors">
+                <p class="text-sm sm:text-base">
+                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-chalk-yellow transition-colors break-all">
                         <i class="fa-solid fa-envelope mr-2 text-chalk-yellow"></i>{{ email }}
                     </a>
                 </p>
@@ -93,17 +89,17 @@
             <!-- KOLOM 3: SOCIAL MEDIA -->
             <div class="space-y-2">
                 <h3 class="font-chalk-hatched text-chalk-red text-xl tracking-wide">Volg Ons</h3>
-                <div class="flex justify-center md:justify-start gap-4 pt-1">
+                <div class="flex justify-center md:justify-start gap-5 pt-1">
                     {{ contact }}
                     {{ if facebook }}
                     <a href="{{ facebook }}" target="_blank" rel="noopener"
-                        class="text-stone-300 hover:text-sky-400 text-2xl transition-colors" title="Facebook">
+                        class="text-stone-300 hover:text-sky-400 text-3xl md:text-2xl transition-colors p-1" title="Facebook">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     {{ /if }}
                     {{ if instagram }}
                     <a href="{{ instagram }}" target="_blank" rel="noopener"
-                        class="text-stone-300 hover:text-pink-400 text-2xl transition-colors" title="Instagram">
+                        class="text-stone-300 hover:text-pink-400 text-3xl md:text-2xl transition-colors p-1" title="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     {{ /if }}
@@ -113,20 +109,57 @@
 
         </div>
 
-        <!-- ONDERSTE BALK: COPYRIGHT & VERBORGEN GRAP -->
-        <div class="border-t border-stone-800/80 pt-6 text-center text-xs text-stone-500 space-y-1">
+        <!-- ONDERSTE BALK -->
+        <div class="border-t border-stone-800/80 pt-6 text-center text-xs text-stone-500 space-y-1 px-4">
             <p>&copy; 1995 - {{ now format="Y" }} Mater Artes Gymnastica. Alle rechten voorbehouden.</p>
-
-            <!-- VERBORGEN GRAP -->
-            <p
-                class="text-[11px] text-stone-600/60">
-                Met <i class="fa-solid fa-heart"></i> gemaakt
+            <p class="text-[11px] text-stone-600/60">
+                Met <i class="fa-solid fa-heart text-red-500/80"></i> gemaakt
                 (en een paar liters Rodeo uit het MAG-kot)
             </p>
         </div>
     </footer>
     {{ /yield:footer }}
 
-</body>
+    <!-- Vanilla JavaScript for Navigation Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const setupNavToggle = (buttonId, menuId) => {
+                const btn = document.getElementById(buttonId);
+                const menu = document.getElementById(menuId);
 
+                if (!btn || !menu) return;
+
+                const icon = btn.querySelector('.nav-icon');
+
+                btn.addEventListener('click', () => {
+                    const isOpen = menu.classList.contains('grid-rows-[1fr]');
+
+                    if (isOpen) {
+                        // Dichtklappen
+                        menu.classList.remove('grid-rows-[1fr]');
+                        menu.classList.add('grid-rows-[0fr]');
+                        btn.setAttribute('aria-expanded', 'false');
+                        if (icon) {
+                            icon.classList.remove('fa-xmark');
+                            icon.classList.add('fa-bars');
+                        }
+                    } else {
+                        // Openklappen
+                        menu.classList.remove('grid-rows-[0fr]');
+                        menu.classList.add('grid-rows-[1fr]');
+                        btn.setAttribute('aria-expanded', 'true');
+                        if (icon) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-xmark');
+                        }
+                    }
+                });
+            };
+
+            // Initialiseer voor beide mogelijke navigatietypes
+            setupNavToggle('nav-toggle-default', 'nav-menu-default');
+            setupNavToggle('nav-toggle-home', 'nav-menu-home');
+        });
+    </script>
+</body>
 </html>
