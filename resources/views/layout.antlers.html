@@ -69,22 +69,22 @@
                 <p class="text-stone-300">
                     De officiële studentenvereniging van de UCLL Lerarenopleiding Secundair Onderwijs Diepenbeek.
                 </p>
-                <p class="text-amber-100/70 text-sm pt-1">
+                <p class="text-chalk-yellow text-sm pt-1">
                     <i class="fa-solid fa-flag text-xs mr-1"></i> Opgericht op 15 september 1995
                 </p>
             </div>
 
             <!-- KOLOM 2: CONTACT & ADRES -->
             <div class="space-y-2">
-                <h3 class="font-chalk-hatched text-amber-200 text-xl tracking-wide">Contact & Locatie</h3>
+                <h3 class="font-chalk-hatched text-chalk-blue text-xl tracking-wide">Contact & Locatie</h3>
                 {{ contact }}
                 <p class="text-stone-300">
-                    <i class="fa-solid fa-location-dot mr-2 text-chalk-red"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590
+                    <i class="fa-solid fa-location-dot mr-2 text-chalk-yellow"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590
                     Diepenbeek' }}
                 </p>
                 <p>
-                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-amber-200 transition-colors">
-                        <i class="fa-solid fa-envelope mr-2 text-sky-400"></i>{{ email }}
+                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-chalk-yellow transition-colors">
+                        <i class="fa-solid fa-envelope mr-2 text-chalk-yellow"></i>{{ email }}
                     </a>
                 </p>
                 {{ /contact }}
@@ -92,7 +92,7 @@
 
             <!-- KOLOM 3: SOCIAL MEDIA -->
             <div class="space-y-2">
-                <h3 class="font-chalk-hatched text-sky-400 text-xl tracking-wide">Volg Ons</h3>
+                <h3 class="font-chalk-hatched text-chalk-red text-xl tracking-wide">Volg Ons</h3>
                 <div class="flex justify-center md:justify-start gap-4 pt-1">
                     {{ contact }}
                     {{ if facebook }}

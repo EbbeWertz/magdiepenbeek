@@ -88,7 +88,7 @@
     </header>
 
     <!-- BEREKEN AANTAL EVENEMENTEN PER BOARD -->
-    {{ count_binnenkort = {collection:count from="evenementen" datum:is_after="now" datum:is_before="+21 days"} }}
+    {{ count_binnenkort = {collection:count from="evenementen" datum:is_after="yesterday" datum:is_before="+21 days"} }}
     {{ count_later = {collection:count from="evenementen" datum:is_after="+21 days"} }}
 
     {{ if count_binnenkort == 0 && count_later == 0 }}
@@ -112,7 +112,7 @@
             <!-- Drie kolommen op grote schermen (xl:grid-cols-3) -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start pt-4">
 
-                {{ collection:evenementen datum:is_after="now" datum:is_before="+21 days" sort="datum:asc" }}
+                {{ collection:evenementen datum:is_after="yesterday" datum:is_before="+21 days" sort="datum:asc" }}
                 <!-- Volledig klikbare Kaart -->
                 <a href="{{ url }}" class="block group cursor-pointer relative">
                     <article class="pushpin relative bg-amber-50 p-4 shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:z-30
