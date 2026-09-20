@@ -1,4 +1,7 @@
-import { annotate } from 'rough-notation';
+import { annotate, annotationGroup } from 'rough-notation';
+
+let ag = null;
+let annotations = [];
 
 const applyChalkFilterToNotation = () => {
   document.querySelectorAll('.rough-notation-holder svg').forEach(svg => {
@@ -6,99 +9,120 @@ const applyChalkFilterToNotation = () => {
   });
 };
 
+const setupAnnotations = () => {
+  // Als er al annotaties bestaan (bij resize), maak ze eerst leeg
+  if (annotations.length > 0) {
+    annotations.forEach(a => a.hide());
+    annotations = [];
+  }
+
+  // Bepaal of het scherm mobiel is voor kleinere padding
+  const isMobile = window.innerWidth < 640;
+  const boxPadding = isMobile ? 2 : 6;
+  const smallBoxPadding = isMobile ? 2 : 4;
+
+  // 1. Motto (Double Chalk Underline)
+  const leuze = document.querySelector('#leuze-text');
+  if (leuze) {
+    annotations.push(annotate(leuze, {
+      type: 'underline',
+      color: '#fef08a',
+      strokeWidth: isMobile ? 1.5 : 2,
+      iterations: 2,
+      animationDuration: 1200
+    }));
+  }
+
+  // 2. Hero knoppen
+  const btnLid = document.querySelector('#btn-lid');
+  if (btnLid) {
+    annotations.push(annotate(btnLid, {
+      type: 'box',
+      color: '#fef08a',
+      strokeWidth: isMobile ? 1.5 : 2,
+      padding: boxPadding,
+      animationDuration: 1200
+    }));
+  }
+
+  const btnEvents = document.querySelector('#btn-events');
+  if (btnEvents) {
+    annotations.push(annotate(btnEvents, {
+      type: 'rectangle',
+      color: '#ffffff',
+      strokeWidth: 1.5,
+      padding: boxPadding,
+      animationDuration: 1400
+    }));
+  }
+
+  // 3. Content Section links
+  const btnOverOns = document.querySelector('#btn-over-ons');
+  if (btnOverOns) {
+    annotations.push(annotate(btnOverOns, {
+      type: 'underline',
+      color: '#991b1b',
+      strokeWidth: 1.5,
+      animationDuration: 1000
+    }));
+  }
+
+  const btnAgenda = document.querySelector('#btn-agenda');
+  if (btnAgenda) {
+    annotations.push(annotate(btnAgenda, {
+      type: 'underline',
+      color: '#075985',
+      strokeWidth: 1.5,
+      animationDuration: 1000
+    }));
+  }
+
+  // 4. Social Knoppen
+  const btnInsta = document.querySelector('#btn-insta');
+  if (btnInsta) {
+    annotations.push(annotate(btnInsta, {
+      type: 'box',
+      color: '#db2777',
+      strokeWidth: 1.5,
+      padding: smallBoxPadding,
+      animationDuration: 1000
+    }));
+  }
+
+  const btnFb = document.querySelector('#btn-fb');
+  if (btnFb) {
+    annotations.push(annotate(btnFb, {
+      type: 'box',
+      color: '#0284c7',
+      strokeWidth: 1.5,
+      padding: smallBoxPadding,
+      animationDuration: 1000
+    }));
+  }
+
+  // Toon alle annotaties via een group voor betere performance
+  ag = annotationGroup(annotations);
+  ag.show();
+
+  setTimeout(applyChalkFilterToNotation, 50);
+};
+
 window.addEventListener('load', () => {
   setTimeout(() => {
     const ctaContainer = document.querySelector('#cta-container');
     if (ctaContainer) ctaContainer.classList.remove('opacity-0');
 
-    // Double Chalk Underline voor Motto
-    const leuze = document.querySelector('#leuze-text');
-    if (leuze) {
-      const aLeuze = annotate(leuze, {
-        type: 'underline',
-        color: '#fef08a',
-        strokeWidth: 2,
-        iterations: 2,
-        animationDuration: 1200
-      });
-      aLeuze.show();
-    }
-
-    // Rough annotations voor Hero knoppen
-    const btnLid = document.querySelector('#btn-lid');
-    if (btnLid) {
-      const a1 = annotate(btnLid, {
-        type: 'box',
-        color: '#fef08a',
-        strokeWidth: 2,
-        padding: 6,
-        animationDuration: 1200
-      });
-      a1.show();
-    }
-
-    const btnEvents = document.querySelector('#btn-events');
-    if (btnEvents) {
-      const a2 = annotate(btnEvents, {
-        type: 'rectangle',
-        color: '#ffffff',
-        strokeWidth: 1.5,
-        padding: 6,
-        animationDuration: 1400
-      });
-      a2.show();
-    }
-
-    // Rough annotations voor Content Section links
-    const btnOverOns = document.querySelector('#btn-over-ons');
-    if (btnOverOns) {
-      const a3 = annotate(btnOverOns, {
-        type: 'underline',
-        color: '#991b1b',
-        strokeWidth: 1.5,
-        animationDuration: 1000
-      });
-      a3.show();
-    }
-
-    const btnAgenda = document.querySelector('#btn-agenda');
-    if (btnAgenda) {
-      const a4 = annotate(btnAgenda, {
-        type: 'underline',
-        color: '#075985',
-        strokeWidth: 1.5,
-        animationDuration: 1000
-      });
-      a4.show();
-    }
-
-    // Rough annotations (Boxes) voor Social Knoppen
-    const btnInsta = document.querySelector('#btn-insta');
-    if (btnInsta) {
-      const aInsta = annotate(btnInsta, {
-        type: 'box',
-        color: '#db2777',
-        strokeWidth: 1.5,
-        padding: 4,
-        animationDuration: 1000
-      });
-      aInsta.show();
-    }
-
-    const btnFb = document.querySelector('#btn-fb');
-    if (btnFb) {
-      const aFb = annotate(btnFb, {
-        type: 'box',
-        color: '#0284c7',
-        strokeWidth: 1.5,
-        padding: 4,
-        animationDuration: 1000
-      });
-      aFb.show();
-    }
-
-    setTimeout(applyChalkFilterToNotation, 50);
+    setupAnnotations();
   }, 150);
+});
+
+// Resize handler met debounce tegen lag tijdens het schalen/roteren van mobiel
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    setupAnnotations();
+  }, 200);
 });
 
 // Globale functie voor de spiekbriefje pop-up

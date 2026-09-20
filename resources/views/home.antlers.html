@@ -57,19 +57,19 @@
 
 <!-- HERO SECTION -->
 <header
-    class="bg-chalkboard bg-cover bg-center h-screen border-b-8 border-amber-950 relative flex flex-col justify-between p-4 sm:p-6 text-chalk-white overflow-hidden box-border">
+    class="bg-chalkboard bg-cover bg-center min-h-screen border-b-8 border-amber-950 relative flex flex-col justify-between p-4 sm:p-6 text-chalk-white overflow-hidden box-border">
 
-    <!-- OUTLINE DOODLES -->
+    <!-- OUTLINE DOODLES (Verborgen op mobiel voor een schone indeling) -->
     <div
-        class="absolute top-[13vh] left-[2.5vw] font-chalk-thin italic text-[1.1vw] text-white/15 select-none pointer-events-none rotate-[-6deg]">
+        class="hidden md:block absolute top-[13vh] left-[2.5vw] font-chalk-thin italic text-[1.1vw] text-white/15 select-none pointer-events-none rotate-[-6deg]">
         E = mc² &nbsp;•&nbsp; a² + b² = c²
     </div>
     <div
-        class="absolute top-[21vh] left-[2vw] font-chalk-thin italic text-[1.1vw] text-white/10 select-none pointer-events-none rotate-[-2deg]">
+        class="hidden md:block absolute top-[21vh] left-[2vw] font-chalk-thin italic text-[1.1vw] text-white/10 select-none pointer-events-none rotate-[-2deg]">
         ~ Lesvoorbereiding L.O. ~
     </div>
     <div
-        class="absolute bottom-[16vh] left-[2vw] font-chalk-thin italic text-[1.3vw] text-white/15 select-none pointer-events-none rotate-[5deg] space-x-3">
+        class="hidden md:block absolute bottom-[16vh] left-[2vw] font-chalk-thin italic text-[1.3vw] text-white/15 select-none pointer-events-none rotate-[5deg] space-x-3">
         <i class="fa-regular fa-compass chalk-icon"></i>
         <i class="fa-regular fa-bookmark chalk-icon"></i>
         <i class="fa-regular fa-lightbulb chalk-icon"></i>
@@ -77,27 +77,27 @@
 
     <!-- SPORT DOODLES -->
     <div
-        class="absolute top-[25vh] left-[32vw] font-chalk-thin text-[1.2vw] text-white/10 select-none pointer-events-none rotate-[8deg] space-x-3">
+        class="hidden md:block absolute top-[25vh] left-[32vw] font-chalk-thin text-[1.2vw] text-white/10 select-none pointer-events-none rotate-[8deg] space-x-3">
         <i class="fa-regular fa-futbol chalk-icon"></i>
         <i class="fa-regular fa-clock chalk-icon"></i>
     </div>
     <div
-        class="absolute bottom-[8vh] left-[28vw] font-chalk-thin italic text-[1.1vw] text-white/15 select-none pointer-events-none rotate-[-4deg]">
+        class="hidden md:block absolute bottom-[8vh] left-[28vw] font-chalk-thin italic text-[1.1vw] text-white/15 select-none pointer-events-none rotate-[-4deg]">
         "Mens sana in corpore sano"
     </div>
 
     <!-- FEEST & TEXT DOODLES -->
     <div
-        class="absolute top-[13vh] right-[27vw] font-chalk-thin text-[1.3vw] text-white/15 select-none pointer-events-none rotate-[12deg] space-x-3">
+        class="hidden md:block absolute top-[13vh] right-[27vw] font-chalk-thin text-[1.3vw] text-white/15 select-none pointer-events-none rotate-[12deg] space-x-3">
         <i class="fa-regular fa-face-smile chalk-icon"></i>
         <i class="fa-regular fa-comments chalk-icon"></i>
     </div>
     <div
-        class="absolute bottom-[14vh] right-[22vw] font-chalk-thin italic text-[1.1vw] text-white/10 select-none pointer-events-none rotate-[6deg]">
+        class="hidden md:block absolute bottom-[14vh] right-[22vw] font-chalk-thin italic text-[1.1vw] text-white/10 select-none pointer-events-none rotate-[6deg]">
         1e graad SO
     </div>
     <div
-        class="absolute bottom-[8vh] right-[3vw] font-chalk-thin text-[1.4vw] text-white/15 select-none pointer-events-none rotate-[-8deg] space-x-3">
+        class="hidden md:block absolute bottom-[8vh] right-[3vw] font-chalk-thin text-[1.4vw] text-white/15 select-none pointer-events-none rotate-[-8deg] space-x-3">
         <i class="fa-regular fa-paper-plane chalk-icon"></i>
         <i class="fa-regular fa-heart chalk-icon"></i>
     </div>
@@ -105,38 +105,40 @@
     {{ partial:nav/home }}
 
     <!-- MAIN GRID -->
-    <div class="max-w-7xl mx-auto w-full h-[82vh] grid grid-cols-12 gap-6 items-center py-4">
+    <div class="max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-8">
 
         {{ algemeen }}
         <!-- LEFT COLUMN -->
-        <div class="col-span-7 flex flex-col justify-between h-[58vh] text-left pl-2 z-10 relative">
+        <div
+            class="lg:col-span-7 flex flex-col justify-between h-full lg:h-[58vh] text-left lg:pl-2 z-10 relative space-y-6 lg:space-y-0">
             <div class="relative w-full">
                 <div
-                    class="italic absolute -top-[3.2vh] right-[1.5vw] font-chalk-thin text-[1.6vw] text-chalk-white opacity-90 rotate-[6deg] border-b border-dashed border-chalk-white/60 pb-0.5">
+                    class="italic absolute -top-5 right-2 lg:-top-[3.2vh] lg:right-[1.5vw] font-chalk-thin text-base sm:text-lg lg:text-[1.6vw] text-chalk-white opacity-90 rotate-[6deg] border-b border-dashed border-chalk-white/60 pb-0.5">
                     Est. 1995
                 </div>
 
-                <h1 class="font-chalk-hatched text-[4.2vw] font-bold tracking-tight leading-none pt-2">
+                <h1
+                    class="font-chalk-hatched text-[8vw] sm:text-6xl lg:text-[4.2vw] font-bold tracking-tight leading-tight pt-4 lg:pt-2 whitespace-nowrap">
                     <span class="text-chalk-red">Mater</span>
                     <span class="text-chalk-blue">Artes</span>
                     <span class="text-chalk-red">Gymnastica</span>
                 </h1>
 
-                <div class="mt-[2.5vh] flex items-center gap-3 relative">
+                <div class="mt-4 lg:mt-[2.5vh] flex flex-wrap items-center gap-2 sm:gap-3 relative">
                     <p id="leuze-text"
-                        class="font-chalk-thin text-[2vw] text-chalk-yellow tracking-wider opacity-90 inline-block">
+                        class="font-chalk-thin text-xl sm:text-2xl lg:text-[2vw] text-chalk-yellow tracking-wider opacity-90 inline-block">
                         "Studens totaliter ludens"
                     </p>
 
                     <button onclick="toggleStickyNote()"
-                        class="text-chalk-white/40 hover:text-chalk-yellow transition-colors font-chalk-thin italic text-[0.9vw] cursor-pointer flex items-center gap-1 opacity-70 hover:opacity-100"
+                        class="text-chalk-white/60 hover:text-chalk-yellow transition-colors font-chalk-thin italic text-sm lg:text-[0.9vw] cursor-pointer flex items-center gap-1 opacity-80 hover:opacity-100 p-1"
                         title="Klik om te vertalen">
                         <span>[?]</span>
                     </button>
 
                     <!-- POPUP NOTE -->
                     <div id="sticky-note"
-                        class="hidden absolute top-[-1vh] left-[23vw] w-64 bg-amber-100 text-gray-900 p-4 rounded-sm shadow-xl transform rotate-2 z-30 tape-sticky border border-amber-200/80">
+                        class="hidden absolute top-10 left-0 lg:top-[-1vh] lg:left-[23vw] w-64 bg-amber-100 text-gray-900 p-4 rounded-sm shadow-xl transform rotate-2 z-30 tape-sticky border border-amber-200/80">
                         <button onclick="toggleStickyNote()"
                             class="absolute top-1 right-2 text-gray-500 hover:text-red-600 text-sm font-bold">
                             ✕
@@ -149,29 +151,30 @@
                             <strong>"Studens totaliter ludens"</strong><br>
                             wil zeggen: <span class="text-amber-900 font-semibold">"Al spelend leren"</span>.
                         </p>
-                        <div class="text-[0.65vw] text-gray-400 text-right mt-2 italic">~ MAG 1995</div>
+                        <div class="text-xs lg:text-[0.65vw] text-gray-400 text-right mt-2 italic">~ MAG 1995</div>
                     </div>
                 </div>
 
-                <p class="font-chalk-thin italic text-[1.2vw] text-chalk-white/70 mt-[1.5vh]">
+                <p
+                    class="font-chalk-thin italic text-base sm:text-lg lg:text-[1.2vw] text-chalk-white/70 mt-3 lg:mt-[1.5vh]">
                     Studentenvereniging Lerarenopleiding Secundair Onderwijs • UCLL Diepenbeek
                 </p>
             </div>
 
             <div id="cta-container"
-                class="flex items-center gap-[2.5vw] font-chalk-thin italic text-[1.4vw] opacity-0 transition-opacity duration-300 pb-2">
-                <div class="relative inline-block">
+                class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-[2.5vw] font-chalk-thin italic text-lg sm:text-xl lg:text-[1.4vw] transition-opacity duration-300 pb-2">
+                <div class="relative inline-block text-center sm:text-left">
                     <a href="{{home_cta1_url}}" id="btn-lid" target="_blank"
-                        class="inline-flex items-center gap-3 text-chalk-yellow px-5 py-2 transition-transform hover:scale-105 opacity-95">
-                        {{ iconify:home_cta1_icon class="chalk-icon text-[1.5vw]" }}
+                        class="inline-flex items-center justify-center gap-3 text-chalk-yellow px-4 sm:px-5 py-2 transition-transform hover:scale-105 opacity-95 w-full sm:w-auto">
+                        {{ iconify:home_cta1_icon class="chalk-icon text-xl sm:text-2xl lg:text-[1.5vw]" }}
                         <span>{{home_cta1_label}}</span>
                     </a>
                 </div>
 
-                <div class="relative inline-block">
+                <div class="relative inline-block text-center sm:text-left">
                     <a href="{{home_cta2_url}}" id="btn-events"
-                        class="inline-flex items-center gap-3 text-chalk-white px-5 py-2 transition-transform hover:scale-105 opacity-90">
-                        {{ iconify:home_cta2_icon class="chalk-icon text-[1.5vw]" }}
+                        class="inline-flex items-center justify-center gap-3 text-chalk-white px-4 sm:px-5 py-2 transition-transform hover:scale-105 opacity-90 w-full sm:w-auto">
+                        {{ iconify:home_cta2_icon class="chalk-icon text-xl sm:text-2xl lg:text-[1.5vw]" }}
                         <span>{{home_cta2_label}}</span>
                     </a>
                 </div>
@@ -179,8 +182,8 @@
         </div>
 
         <!-- RIGHT COLUMN: POLAROID WITH LINK TO /PRAESIDIUM -->
-        <div class="col-span-5 flex justify-center items-center z-10">
-            <a href="/praesidium" class="group block w-full max-w-md">
+        <div class="lg:col-span-5 flex justify-center items-center z-10 w-full">
+            <a href="/praesidium" class="group block w-full max-w-sm sm:max-w-md">
                 <div
                     class="bg-white p-3 pb-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gray-100 transform rotate-1 group-hover:rotate-0 group-hover:scale-[1.02] transition-all duration-300 relative tape-top flex flex-col justify-between">
 
@@ -191,7 +194,7 @@
 
                     <div class="flex justify-between items-center px-2 pt-3 text-gray-800">
                         <p
-                            class="font-cute text-[1.3vw] font-bold tracking-wide group-hover:text-red-800 transition-colors">
+                            class="font-cute text-base sm:text-lg lg:text-[1.3vw] font-bold tracking-wide group-hover:text-red-800 transition-colors">
                             {{ homepage_foto_caption }}
                         </p>
                         <i
@@ -209,7 +212,7 @@
 
 
 <!-- MAIN CONTENT SECTION -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16 relative">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16 relative">
 
     <!-- RIJ 1 -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -217,54 +220,61 @@
         <div class="md:col-span-6 space-y-6 text-chalk-white relative">
             <div class="space-y-2">
                 <h2 class="font-chalk-hatched text-3xl sm:text-4xl font-bold tracking-wide">
-                    <span class="text-chalk-red">Welkom</span> <span class="text-chalk-blue">bij</span> <span class="text-chalk-red">MAG</span>
+                    <span class="text-chalk-red">Welkom</span> <span class="text-chalk-blue">bij</span> <span
+                        class="text-chalk-red">MAG</span>
                 </h2>
             </div>
 
             <p class="font-chalk-thin text-base sm:text-lg text-chalk-white/90 leading-relaxed max-w-md">
-                Of je nu zoekt naar studieondersteuning, onvergetelijke feesten of vrienden voor het leven: bij MAG zit je op je plek.
+                Of je nu zoekt naar studieondersteuning, onvergetelijke feesten of vrienden voor het leven: bij MAG zit
+                je op je plek.
             </p>
 
             <!-- MINI POLAROID SCHILD -->
             <div class="pt-2">
-                <div class="inline-block relative tape-small bg-white p-2 pb-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 w-36">
+                <div
+                    class="inline-block relative tape-small bg-white p-2 pb-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 w-32 sm:w-36">
                     <div class="aspect-square w-full overflow-hidden bg-stone-100 flex items-center justify-center p-1">
-                        <img src="{{ algemeen:schild ?? 'assets/images/schild.png' }}"
-                             alt="Verenigingsschild M.A.G."
-                             class="w-full h-full object-contain">
+                        <img src="{{ algemeen:schild ?? 'assets/images/schild.png' }}" alt="Verenigingsschild M.A.G."
+                            class="w-full h-full object-contain">
                     </div>
                     <p class="font-cute text-[11px] text-center font-bold text-stone-700 mt-2">Ons Schild</p>
                 </div>
             </div>
 
-            <div class="absolute -bottom-6 right-8 text-white/10 text-4xl select-none pointer-events-none rotate-12">
+            <div
+                class="hidden sm:block absolute -bottom-6 right-8 text-white/10 text-4xl select-none pointer-events-none rotate-12">
                 <i class="fa-regular fa-star chalk-icon"></i>
             </div>
         </div>
 
         <div class="md:col-span-6 flex justify-center md:justify-end">
-            <div class="relative group tape-top rotate-2 hover:rotate-0 transition-transform duration-300 w-full max-w-sm">
-                <div class="relative bg-amber-50 p-6 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
+            <div
+                class="relative group tape-top rotate-1 sm:rotate-2 hover:rotate-0 transition-transform duration-300 w-full max-w-sm">
+                <div
+                    class="relative bg-amber-50 p-5 sm:p-6 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
                     <div class="flex justify-between items-center border-b border-amber-900/20 pb-2">
-                        <h3 class="font-cute text-stone-900 text-2xl font-bold">
+                        <h3 class="font-cute text-stone-900 text-xl sm:text-2xl font-bold">
                             Wie zijn wij?
                         </h3>
                         <i class="fa-solid fa-graduation-cap text-amber-800/40 text-xl chalk-icon"></i>
                     </div>
 
-                    <p class="font-cute text-stone-800 text-sm leading-relaxed">
-                        <strong class="text-red-800 font-bold">Mater Artes Gymnastica</strong> is dé studentenvereniging voor de lerarenopleiding secundair onderwijs aan UCLL Diepenbeek.
+                    <p class="font-cute text-stone-800 text-xs sm:text-sm leading-relaxed">
+                        <strong class="text-red-800 font-bold">Mater Artes Gymnastica</strong> is dé studentenvereniging
+                        voor de lerarenopleiding secundair onderwijs aan UCLL Diepenbeek.
                     </p>
                     <p class="font-cute text-stone-700 text-xs leading-relaxed">
-                        Samen zorgen we voor de perfecte balans tussen studeren, vakoverrijpende vrienden maken en een onvergetelijke studententijd!
+                        Samen zorgen we voor de perfecte balans tussen studeren, vakoverrijpende vrienden maken en een
+                        onvergetelijke studententijd!
                     </p>
 
                     <div class="pt-2">
-                        <a href="/over-ons"
-                           id="btn-over-ons"
-                           class="inline-flex items-center gap-2 font-cute text-red-800 font-bold text-sm hover:text-red-900 transition-colors p-1 group/link">
+                        <a href="/over-ons" id="btn-over-ons"
+                            class="inline-flex items-center gap-2 font-cute text-red-800 font-bold text-xs sm:text-sm hover:text-red-900 transition-colors p-1 group/link">
                             <span>Ontdek meer over ons</span>
-                            <i class="fa-solid fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform chalk-icon"></i>
+                            <i
+                                class="fa-solid fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform chalk-icon"></i>
                         </a>
                     </div>
                 </div>
@@ -278,78 +288,82 @@
 
         <div class="md:col-span-7 flex justify-center md:justify-start order-2 md:order-1">
             <div class="relative group tape-top -rotate-1 hover:rotate-0 transition-transform duration-300 w-full">
-                <div class="relative bg-amber-50 p-6 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
+                <div
+                    class="relative bg-amber-50 p-5 sm:p-6 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4">
 
                     <div class="flex justify-between items-center border-b border-amber-900/20 pb-2">
-                        <h3 class="font-cute text-stone-900 text-2xl font-bold">
+                        <h3 class="font-cute text-stone-900 text-xl sm:text-2xl font-bold">
                             Binnenkort
                         </h3>
                         <i class="fa-solid fa-calendar-day text-sky-800/40 text-xl chalk-icon"></i>
                     </div>
 
                     {{ collection:evenementen datum:is_after="now" sort="datum:asc" limit="1" }}
-                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                            <div class="sm:col-span-7 space-y-2">
-                                <span class="inline-block bg-sky-100 text-sky-900 font-cute text-xs px-2 py-0.5 rounded font-bold">
-                                    <i class="fa-regular fa-calendar-days text-sky-700 mr-1 chalk-icon"></i>
-                                    {{ datum format="d F Y" }} {{ if tijd }}• {{ tijd }}{{ /if }}
-                                </span>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                        <div class="sm:col-span-7 space-y-2">
+                            <span
+                                class="inline-block bg-sky-100 text-sky-900 font-cute text-xs px-2 py-0.5 rounded font-bold">
+                                <i class="fa-regular fa-calendar-days text-sky-700 mr-1 chalk-icon"></i>
+                                {{ datum format="d F Y" }} {{ if tijd }}• {{ tijd }}{{ /if }}
+                            </span>
 
-                                <h4 class="font-cute text-stone-900 text-lg font-bold leading-snug">
-                                    {{ title }}
-                                </h4>
+                            <h4 class="font-cute text-stone-900 text-base sm:text-lg font-bold leading-snug">
+                                {{ title }}
+                            </h4>
 
-                                {{ if locatie }}
-                                <p class="font-cute text-stone-600 text-xs font-semibold flex items-center gap-1">
-                                    <i class="fa-solid fa-location-dot text-stone-500 chalk-icon"></i>
-                                    <span>{{ locatie }}</span>
-                                </p>
-                                {{ /if }}
+                            {{ if locatie }}
+                            <p class="font-cute text-stone-600 text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-stone-500 chalk-icon"></i>
+                                <span>{{ locatie }}</span>
+                            </p>
+                            {{ /if }}
 
-                                {{ if samenvatting }}
-                                <p class="font-cute text-stone-700 text-xs leading-relaxed line-clamp-3">
-                                    {{ samenvatting }}
-                                </p>
-                                {{ /if }}
-                            </div>
-
-                            <div class="sm:col-span-5">
-                                {{ if omslag_klein }}
-                                    <div class="relative tape-small bg-white p-1 shadow-md rotate-1 group-hover:rotate-0 transition-transform w-full">
-                                        <div class="aspect-[4/5] w-full overflow-hidden bg-stone-100">
-                                            <img src="{{ glide:omslag_klein width="300" height="375" fit="crop" }}"
-                                                 alt="{{ title }}"
-                                                 class="w-full h-full object-cover block filter contrast-[1.02]">
-                                        </div>
-                                    </div>
-                                {{ elseif omslag_groot }}
-                                    <div class="relative tape-small bg-white p-1 shadow-md rotate-1 group-hover:rotate-0 transition-transform w-full">
-                                        <div class="aspect-[16/9] w-full overflow-hidden bg-stone-100">
-                                            <img src="{{ glide:omslag_groot width="350" height="196" fit="crop" }}"
-                                                 alt="{{ title }}"
-                                                 class="w-full h-full object-cover block filter contrast-[1.02]">
-                                        </div>
-                                    </div>
-                                {{ /if }}
-                            </div>
+                            {{ if samenvatting }}
+                            <p class="font-cute text-stone-700 text-xs leading-relaxed line-clamp-3">
+                                {{ samenvatting }}
+                            </p>
+                            {{ /if }}
                         </div>
+
+                        <div class="sm:col-span-5">
+                            {{ if omslag_klein }}
+                            <div
+                                class="relative tape-small bg-white p-1 shadow-md rotate-1 group-hover:rotate-0 transition-transform w-full">
+                                <div class="aspect-[4/5] w-full overflow-hidden bg-stone-100">
+                                    <img src="{{ glide:omslag_klein width="300" height="375" fit="crop" }}"
+                                        alt="{{ title }}"
+                                        class="w-full h-full object-cover block filter contrast-[1.02]">
+                                </div>
+                            </div>
+                            {{ elseif omslag_groot }}
+                            <div
+                                class="relative tape-small bg-white p-1 shadow-md rotate-1 group-hover:rotate-0 transition-transform w-full">
+                                <div class="aspect-[16/9] w-full overflow-hidden bg-stone-100">
+                                    <img src="{{ glide:omslag_groot width="350" height="196" fit="crop" }}"
+                                        alt="{{ title }}"
+                                        class="w-full h-full object-cover block filter contrast-[1.02]">
+                                </div>
+                            </div>
+                            {{ /if }}
+                        </div>
+                    </div>
                     {{ /collection:evenementen }}
 
                     {{ if {collection:count from="evenementen" datum:is_after="now"} == 0 }}
-                        <div class="py-4 text-center space-y-1">
-                            <i class="fa-solid fa-mug-hot text-amber-800/30 text-2xl chalk-icon"></i>
-                            <p class="font-cute text-stone-600 italic text-xs">
-                                Geen evenementen gepland. Houd onze socials in de gaten!
-                            </p>
-                        </div>
+                    <div class="py-4 text-center space-y-1">
+                        <i class="fa-solid fa-mug-hot text-amber-800/30 text-2xl chalk-icon"></i>
+                        <p class="font-cute text-stone-600 italic text-xs">
+                            Geen evenementen gepland. Houd onze socials in de gaten!
+                        </p>
+                    </div>
                     {{ /if }}
 
                     <div class="pt-2 border-t border-amber-900/10">
-                        <a href="/evenementen"
-                           id="btn-agenda"
-                           class="inline-flex items-center gap-2 font-cute text-sky-800 font-bold text-sm hover:text-sky-900 transition-colors p-1 group/link">
+                        <a href="/evenementen" id="btn-agenda"
+                            class="inline-flex items-center gap-2 font-cute text-sky-800 font-bold text-xs sm:text-sm hover:text-sky-900 transition-colors p-1 group/link">
                             <span>Volledige agenda</span>
-                            <i class="fa-solid fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform chalk-icon"></i>
+                            <i
+                                class="fa-solid fa-arrow-right text-xs group-hover/link:translate-x-1 transition-transform chalk-icon"></i>
                         </a>
                     </div>
 
@@ -359,19 +373,21 @@
 
         <div class="md:col-span-5 space-y-4 text-chalk-white order-1 md:order-2 md:pl-4">
             <h2 class="font-chalk-hatched text-3xl sm:text-4xl font-bold tracking-wide">
-                <span class="text-chalk-red">Kom langs</span> <span class="text-chalk-blue">&</span> <span class="text-chalk-red">doe mee!</span>
+                <span class="text-chalk-red">Kom langs</span> <span class="text-chalk-blue">&</span> <span
+                    class="text-chalk-red">doe mee!</span>
             </h2>
-            <p class="font-chalk-thin text-lg sm:text-xl text-chalk-white/90 leading-relaxed max-w-md">
-                Van cantussen en TD's tot sportieve en gezellige avonden. Er is altijd wel wat te beleven op en rondom de campus.
+            <p class="font-chalk-thin text-base sm:text-xl text-chalk-white/90 leading-relaxed max-w-md">
+                Van cantussen en TD's tot sportieve en gezellige avonden. Er is altijd wel wat te beleven op en rondom
+                de campus.
             </p>
         </div>
 
     </div>
 
     <!-- RIJ 3 -->
-    <div class="pt-8 flex flex-col items-center text-center space-y-4">
+    <div class="pt-4 sm:pt-8 flex flex-col items-center text-center space-y-4">
 
-        <h3 class="font-chalk-hatched text-2xl text-chalk-white">
+        <h3 class="font-chalk-hatched text-xl sm:text-2xl text-chalk-white">
             Blijf op de hoogte
         </h3>
 
@@ -381,23 +397,23 @@
                     Volg ons voor alle live updates & foto's:
                 </p>
 
-                <div class="flex justify-center items-center gap-6 font-cute pt-1 pb-1">
+                <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 font-cute pt-1 pb-1">
                     {{ contact }}
-                        {{ if instagram }}
-                        <a href="{{ instagram }}" target="_blank" rel="noopener" id="btn-insta"
-                           class="inline-flex items-center gap-2 px-3 py-1.5 text-stone-800 font-bold text-xs hover:text-pink-700 transition-colors">
-                            <i class="fa-brands fa-instagram text-base text-pink-600 chalk-icon"></i>
-                            <span>Instagram</span>
-                        </a>
-                        {{ /if }}
+                    {{ if instagram }}
+                    <a href="{{ instagram }}" target="_blank" rel="noopener" id="btn-insta"
+                        class="inline-flex items-center gap-2 px-3 py-1.5 text-stone-800 font-bold text-xs hover:text-pink-700 transition-colors">
+                        <i class="fa-brands fa-instagram text-base text-pink-600 chalk-icon"></i>
+                        <span>Instagram</span>
+                    </a>
+                    {{ /if }}
 
-                        {{ if facebook }}
-                        <a href="{{ facebook }}" target="_blank" rel="noopener" id="btn-fb"
-                           class="inline-flex items-center gap-2 px-3 py-1.5 text-stone-800 font-bold text-xs hover:text-sky-700 transition-colors">
-                            <i class="fa-brands fa-facebook text-base text-sky-600 chalk-icon"></i>
-                            <span>Facebook</span>
-                        </a>
-                        {{ /if }}
+                    {{ if facebook }}
+                    <a href="{{ facebook }}" target="_blank" rel="noopener" id="btn-fb"
+                        class="inline-flex items-center gap-2 px-3 py-1.5 text-stone-800 font-bold text-xs hover:text-sky-700 transition-colors">
+                        <i class="fa-brands fa-facebook text-base text-sky-600 chalk-icon"></i>
+                        <span>Facebook</span>
+                    </a>
+                    {{ /if }}
                     {{ /contact }}
                 </div>
 
