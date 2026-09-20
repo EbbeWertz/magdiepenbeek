@@ -26,14 +26,17 @@
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 4px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: rgba(245, 158, 11, 0.3);
             border-radius: 4px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: rgba(245, 158, 11, 0.6);
         }
@@ -44,9 +47,9 @@
 
     <!-- Header Block -->
     {{ yield:header }}
-        <header class="p-4 sm:p-6 backdrop-blur-sm">
-            {{ partial:nav/default }}
-        </header>
+    <header class="p-4 sm:p-6 backdrop-blur-sm">
+        {{ partial:nav/default }}
+    </header>
     {{ /yield:header }}
 
     <!-- Main Content (Geen eigen achtergrond) -->
@@ -56,10 +59,74 @@
 
     <!-- Footer Block -->
     {{ yield:footer }}
-        <footer class="border-t border-gray-800/60 py-6 text-center text-gray-400 text-sm bg-gray-950/50 backdrop-blur-sm">
-            <p>&copy; {{ now format="Y" }} Mater Artes Gymnastica</p>
-        </footer>
+    <footer
+        class="border-t border-amber-100/10 py-10 bg-stone-950/60 backdrop-blur-sm text-stone-400 font-cute text-base">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+
+            <!-- KOLOM 1: INFO & OPRICHTING -->
+            <div class="space-y-2">
+                <h3 class="font-chalk-hatched text-chalk-red text-xl tracking-wide">Mater Artes Gymnastica</h3>
+                <p class="text-stone-300">
+                    De officiële studentenvereniging van de UCLL Lerarenopleiding Secundair Onderwijs Diepenbeek.
+                </p>
+                <p class="text-amber-100/70 text-sm pt-1">
+                    <i class="fa-solid fa-flag text-xs mr-1"></i> Opgericht op 15 september 1995
+                </p>
+            </div>
+
+            <!-- KOLOM 2: CONTACT & ADRES -->
+            <div class="space-y-2">
+                <h3 class="font-chalk-hatched text-amber-200 text-xl tracking-wide">Contact & Locatie</h3>
+                {{ contact }}
+                <p class="text-stone-300">
+                    <i class="fa-solid fa-location-dot mr-2 text-chalk-red"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590
+                    Diepenbeek' }}
+                </p>
+                <p>
+                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-amber-200 transition-colors">
+                        <i class="fa-solid fa-envelope mr-2 text-sky-400"></i>{{ email }}
+                    </a>
+                </p>
+                {{ /contact }}
+            </div>
+
+            <!-- KOLOM 3: SOCIAL MEDIA -->
+            <div class="space-y-2">
+                <h3 class="font-chalk-hatched text-sky-400 text-xl tracking-wide">Volg Ons</h3>
+                <div class="flex justify-center md:justify-start gap-4 pt-1">
+                    {{ contact }}
+                    {{ if facebook }}
+                    <a href="{{ facebook }}" target="_blank" rel="noopener"
+                        class="text-stone-300 hover:text-sky-400 text-2xl transition-colors" title="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    {{ /if }}
+                    {{ if instagram }}
+                    <a href="{{ instagram }}" target="_blank" rel="noopener"
+                        class="text-stone-300 hover:text-pink-400 text-2xl transition-colors" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    {{ /if }}
+                    {{ /contact }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ONDERSTE BALK: COPYRIGHT & VERBORGEN GRAP -->
+        <div class="border-t border-stone-800/80 pt-6 text-center text-xs text-stone-500 space-y-1">
+            <p>&copy; 1995 - {{ now format="Y" }} Mater Artes Gymnastica. Alle rechten voorbehouden.</p>
+
+            <!-- VERBORGEN GRAP -->
+            <p
+                class="text-[11px] text-stone-600/60">
+                Met <i class="fa-solid fa-heart"></i> gemaakt
+                (en een paar liters Rodeo uit het MAG-kot)
+            </p>
+        </div>
+    </footer>
     {{ /yield:footer }}
 
 </body>
+
 </html>
