@@ -14,20 +14,29 @@
                 0.4% 98.9%);
     }
 
-    /* Plakbandje bovenaan (Tape) */
+    /* Responsive Plakbandje bovenaan (Tape) */
     .tape-top::before {
         content: '';
         position: absolute;
-        top: -12px;
+        top: -10px;
         left: 50%;
         transform: translateX(-50%) rotate(-1.5deg);
-        width: 100px;
-        height: 26px;
+        width: 75px;
+        height: 20px;
         background-color: rgba(254, 243, 199, 0.65);
         border: 1px solid rgba(217, 119, 6, 0.3);
         backdrop-filter: blur(1.5px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         z-index: 30;
+    }
+
+    @media (min-width: 768px) {
+        .tape-top::before {
+            top: -12px;
+            width: 100px;
+            height: 26px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
     }
 
     /* Krijtbord vervorming op iconen */
@@ -46,72 +55,71 @@
     </defs>
 </svg>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 md:py-8 space-y-6 sm:space-y-8 overflow-x-hidden">
 
     <!-- TERUG KNOP -->
     <div>
         <a href="/evenementen"
-            class="inline-flex items-center gap-2 font-chalk-thin text-amber-100/80 hover:text-amber-100 transition-colors text-xl group">
-            <i class="fa-solid fa-arrow-left text-base group-hover:-translate-x-1 transition-transform chalk-icon"></i>
+            class="inline-flex items-center gap-2 font-chalk-thin text-amber-100/80 hover:text-amber-100 transition-colors text-base sm:text-xl group">
+            <i class="fa-solid fa-arrow-left text-xs sm:text-base group-hover:-translate-x-1 transition-transform chalk-icon"></i>
             <span>Terug naar evenementen</span>
         </a>
     </div>
 
     <!-- HEADER: KRIJT TITEL -->
-    <header class="text-center">
-        <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
+    <header class="text-center px-2">
+        <h1 class="font-chalk-hatched text-3xl sm:text-5xl md:text-6xl font-bold tracking-wide leading-tight">
             <span class="text-chalk-red">{{ title }}</span>
         </h1>
     </header>
 
     <!-- MAIN GRID: LINKER x RECHTERKOLOM -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start pt-2 sm:pt-4">
 
-        <!-- LINKERKOLOM: PAPIEREN BRIEFJE (DATUM, TIJD, BESCHRIJVING) -->
-        <div class="lg:col-span-6 relative pt-4">
-            <div class="relative group tape-top -rotate-1 hover:rotate-0 transition-transform duration-300">
-                <div
-                    class="relative w-full bg-amber-50 p-6 md:p-8 shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-6">
+        <!-- LINKERKOLOM (Mobiel: order-2 | Desktop: order-1) -->
+        <div class="lg:col-span-6 order-2 lg:order-1 relative pt-2 sm:pt-4">
+            <div class="relative group tape-top -rotate-1 md:hover:rotate-0 transition-transform duration-300">
+                <div class="relative w-full bg-amber-50 p-4 sm:p-6 md:p-8 shadow-[0_8px_20px_rgba(0,0,0,0.4)] md:shadow-[0_12px_28px_rgba(0,0,0,0.5)] paper-border space-y-4 sm:space-y-6">
 
                     <!-- DATUM & TIJD -->
-                    <div class="space-y-3 font-cute border-b border-amber-900/20 pb-4">
+                    <div class="space-y-2 sm:space-y-3 font-cute border-b border-amber-900/20 pb-3 sm:pb-4">
 
                         {{ if datum }}
-                        <div class="flex items-center gap-3 text-stone-900 text-lg">
-                            <i class="fa-regular fa-calendar-days text-red-700 text-xl shrink-0 chalk-icon"></i>
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-stone-900 text-base sm:text-lg">
+                            <i class="fa-regular fa-calendar-days text-red-700 text-lg sm:text-xl shrink-0 chalk-icon"></i>
                             <span class="capitalize font-bold">{{ datum | iso_format('dddd D MMMM YYYY', 'nl') }}</span>
                         </div>
                         {{ /if }}
 
                         {{ if tijd }}
-                        <div class="flex items-center gap-3 text-stone-900 text-lg">
-                            <i class="fa-regular fa-clock text-red-700 text-xl shrink-0 chalk-icon"></i>
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-stone-900 text-base sm:text-lg">
+                            <i class="fa-regular fa-clock text-red-700 text-lg sm:text-xl shrink-0 chalk-icon"></i>
                             <span class="font-bold">{{ tijd }} uur</span>
                         </div>
                         {{ else if datum:H:i != '00:00' }}
-                        <div class="flex items-center gap-3 text-stone-900 text-lg">
-                            <i class="fa-regular fa-clock text-red-700 text-xl shrink-0 chalk-icon"></i>
+                        <div class="flex items-center gap-2.5 sm:gap-3 text-stone-900 text-base sm:text-lg">
+                            <i class="fa-regular fa-clock text-red-700 text-lg sm:text-xl shrink-0 chalk-icon"></i>
                             <span class="font-bold">{{ datum | format('H:i') }} uur</span>
                         </div>
                         {{ /if }}
 
                         {{ if locatie }}
-                        <div class="flex items-start gap-3 text-stone-900 text-lg">
-                            <i class="fa-solid fa-location-dot text-red-700 text-xl shrink-0 mt-1 chalk-icon"></i>
+                        <div class="flex items-start gap-2.5 sm:gap-3 text-stone-900 text-base sm:text-lg">
+                            <i class="fa-solid fa-location-dot text-red-700 text-lg sm:text-xl shrink-0 mt-0.5 chalk-icon"></i>
                             <span class="font-bold">{{ locatie }}</span>
                         </div>
                         {{ /if }}
 
                     </div>
 
-                    <!-- BESCHRIJVING MET BEHOORDEN WITRUIMTES -->
+                    <!-- BESCHRIJVING -->
                     <div class="space-y-3">
                         {{ if beschrijving }}
-                        <div class="font-cute text-stone-800 text-lg leading-relaxed">
+                        <div class="font-cute text-stone-800 text-sm sm:text-lg leading-relaxed">
                             {{ beschrijving | nl2br }}
                         </div>
                         {{ else }}
-                        <p class="font-cute text-stone-600 italic">
+                        <p class="font-cute text-stone-600 italic text-sm sm:text-base">
                             Er is nog geen uitgebreide beschrijving beschikbaar.
                         </p>
                         {{ /if }}
@@ -121,18 +129,14 @@
             </div>
         </div>
 
-        <!-- RECHTERKOLOM: POLAROID OMSLAG & SOCIALS IN KRIJT -->
-        <div class="lg:col-span-6 space-y-8 pt-4">
+        <!-- RECHTERKOLOM (Mobiel: order-1 | Desktop: order-2) -->
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-6 sm:space-y-8 pt-2 sm:pt-4">
 
-            <!-- POLAROID OMSLAG (MET EXTRA SPACE BOVENIN TEGEN CLIPPING VAN DE TAPE) -->
+            <!-- POLAROID OMSLAG -->
             {{ if omslag_groot || omslag_klein }}
-            <div class="relative group w-full pt-4"> <!-- pt-4 geeft extra ruimte voor de tape die uitsteekt -->
-                <!-- tape-top staat nu op de buitenste container ZONDER clip-path -->
-                <div class="relative tape-top rotate-1 hover:rotate-0 transition-all duration-300">
-
-                    <!-- polaroid-border staat op het binnenste element DAT wel geclipt wordt -->
-                    <div
-                        class="bg-amber-50 p-3 md:p-4 pb-5 md:pb-6 shadow-[0_15px_35px_rgba(0,0,0,0.6)] polaroid-border">
+            <div class="relative group w-full max-w-md lg:max-w-none mx-auto">
+                <div class="relative tape-top rotate-1 md:hover:rotate-0 transition-all duration-300">
+                    <div class="bg-amber-50 p-2.5 sm:p-4 pb-4 sm:pb-6 shadow-[0_10px_25px_rgba(0,0,0,0.5)] md:shadow-[0_15px_35px_rgba(0,0,0,0.6)] polaroid-border">
                         <div class="w-full overflow-hidden bg-stone-900/10 rounded-sm">
                             {{ if omslag_groot }}
                             <img src="{{ glide:omslag_groot width="1200" }}" alt="{{ title }}"
@@ -143,20 +147,18 @@
                             {{ /if }}
                         </div>
                     </div>
-
                 </div>
             </div>
             {{ /if }}
 
-            <!-- SOCIALS IN KRIJT OP ACHTERGROND (ZONDER TITEL) -->
+            <!-- SOCIALS (DESKTOP VERSIE: Alleen zichtbaar op grote schermen) -->
             {{ if facebook_url || instagram_url }}
-            <div class="font-chalk-thin px-2">
-                <div class="flex flex-col gap-3 text-xl md:text-2xl">
+            <div class="hidden lg:block font-chalk-thin px-2">
+                <div class="flex flex-col gap-2.5 sm:gap-3 text-2xl">
                     {{ if facebook_url }}
                     <a href="{{ facebook_url }}" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-4 text-amber-100 hover:text-sky-300 transition-colors group">
-                        <i
-                            class="fa-brands fa-facebook-f text-sky-400 text-2xl w-8 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
+                        <i class="fa-brands fa-facebook-f text-sky-400 text-2xl w-8 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
                         <span>Bekijk Facebook Evenement</span>
                     </a>
                     {{ /if }}
@@ -164,8 +166,7 @@
                     {{ if instagram_url }}
                     <a href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-4 text-amber-100 hover:text-pink-300 transition-colors group">
-                        <i
-                            class="fa-brands fa-instagram text-pink-400 text-2xl w-8 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
+                        <i class="fa-brands fa-instagram text-pink-400 text-2xl w-8 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
                         <span>Bekijk Instagram Bericht</span>
                     </a>
                     {{ /if }}
@@ -174,6 +175,29 @@
             {{ /if }}
 
         </div>
+
+        <!-- SOCIALS (MOBIEL VERSIE: Zichtbaar op mobiel/tablet, staat als order-3 onderaan de hele pagina) -->
+        {{ if facebook_url || instagram_url }}
+        <div class="block lg:hidden order-3 font-chalk-thin px-2 pt-2 sm:pt-4">
+            <div class="flex flex-col gap-2.5 sm:gap-3 text-lg sm:text-xl">
+                {{ if facebook_url }}
+                <a href="{{ facebook_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-3 text-amber-100 hover:text-sky-300 transition-colors group">
+                    <i class="fa-brands fa-facebook-f text-sky-400 text-xl w-6 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
+                    <span>Bekijk Facebook Evenement</span>
+                </a>
+                {{ /if }}
+
+                {{ if instagram_url }}
+                <a href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-3 text-amber-100 hover:text-pink-300 transition-colors group">
+                    <i class="fa-brands fa-instagram text-pink-400 text-xl w-6 text-center shrink-0 chalk-icon group-hover:scale-110 transition-transform"></i>
+                    <span>Bekijk Instagram Bericht</span>
+                </a>
+                {{ /if }}
+            </div>
+        </div>
+        {{ /if }}
 
     </div>
 
