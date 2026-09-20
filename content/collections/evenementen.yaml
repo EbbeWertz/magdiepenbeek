@@ -1,0 +1,15 @@
+title: Evenementen
+icon: calendar-date
+template: evenementen/show
+layout: layout
+revisions: false
+route: '/evenementen/{{ datum format="Y" }}/{{slug}}'
+sort_dir: asc
+date_behavior:
+  past: null
+  future: null
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

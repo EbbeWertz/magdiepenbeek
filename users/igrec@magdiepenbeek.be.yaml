@@ -13,6 +13,8 @@ preferences:
       view: list
     fotoalbums:
       view: list
+    evenementen:
+      view: list
   locale: nl
   formatting_locale: nl
   theme:

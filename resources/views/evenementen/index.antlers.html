@@ -1,0 +1,298 @@
+<style>
+    /* Verbrede, lichtere houten rand voor beter contrast */
+    .wood-frame-thin {
+        background: #603813;
+        border: 12px solid #4a280d;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Subtielere Kurk Textuur */
+    .cork-board {
+        background-color: #cd9c62;
+        background-image:
+            radial-gradient(rgba(130, 80, 30, 0.45) 8%, transparent 9%),
+            radial-gradient(rgba(150, 95, 40, 0.4) 8%, transparent 9%);
+        background-size: 10px 10px;
+        background-position: 0 0, 5px 5px;
+        box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Label op de houten bovenrand */
+    .wood-label {
+        background-color: #fef3c7;
+        border: 1px solid #b45309;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        transform: translateX(-50%) rotate(-0.5deg);
+    }
+
+    /* Plakband op de polaroid foto */
+    .tape-small::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-3deg);
+        width: 35px;
+        height: 14px;
+        background-color: rgba(254, 243, 199, 0.75);
+        border: 1px solid rgba(217, 119, 6, 0.25);
+        backdrop-filter: blur(1px);
+        z-index: 10;
+    }
+
+    /* Pushpin bovenaan de flyer */
+    .pushpin::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 14px;
+        background: radial-gradient(circle at 30% 30%, #ef4444, #991b1b);
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+        z-index: 20;
+    }
+
+    /* Krijtbord vervorming & textuur voor iconen */
+    .chalk-icon {
+        filter: url(#chalk-filter);
+    }
+</style>
+
+<!-- SVG Chalk Filter Definitie -->
+<svg class="hidden">
+    <defs>
+        <filter id="chalk-filter" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </defs>
+</svg>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-16">
+
+    <!-- HEADER: ROOD-BLAUW-ROOD KRIJT TITEL -->
+    <header class="text-center mb-12">
+        <div class="inline-block relative">
+            <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
+                <span class="text-chalk-red">Evenementen</span>
+                <span class="text-chalk-blue">&</span>
+                <span class="text-chalk-red">Activiteiten</span>
+            </h1>
+            <p class="font-chalk-thin text-amber-100/80 text-lg md:text-xl mt-2 italic">
+                Wat er te doen is bij onze vereniging
+            </p>
+        </div>
+    </header>
+
+    <!-- BEREKEN AANTAL EVENEMENTEN PER BOARD -->
+    {{ count_binnenkort = {collection:count from="evenementen" datum:is_after="now" datum:is_before="+21 days"} }}
+    {{ count_later = {collection:count from="evenementen" datum:is_after="+21 days"} }}
+
+    {{ if count_binnenkort == 0 && count_later == 0 }}
+    <!-- FALLBACK ALS ER HELEMAAL GEEN EVENEMENTEN ZIJN -->
+    <div class="text-center py-16 px-4 bg-amber-950/20 rounded-2xl border border-amber-900/30 backdrop-blur-sm max-w-2xl mx-auto">
+        <p class="font-cute text-2xl text-amber-100 mb-2">Er zijn momenteel geen geplande evenementen.</p>
+        <p class="font-chalk-thin text-amber-200/70 text-lg">Houd onze pagina in de gaten voor nieuwe activiteiten!</p>
+    </div>
+    {{ else }}
+
+    <!-- PRIKBORD 1: BINNENKORT -->
+    {{ if count_binnenkort > 0 }}
+    <section class="wood-frame-thin relative mb-16">
+        <div class="absolute -top-5 left-1/2 wood-label px-6 py-1 z-20">
+            <span class="font-fancy text-amber-950 text-xl sm:text-2xl font-bold uppercase tracking-wider">
+                Binnenkort
+            </span>
+        </div>
+
+        <div class="cork-board p-5 sm:p-8">
+            <!-- Drie kolommen op grote schermen (xl:grid-cols-3) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start pt-4">
+
+                {{ collection:evenementen datum:is_after="now" datum:is_before="+21 days" sort="datum:asc" }}
+                <!-- Volledig klikbare Kaart -->
+                <a href="{{ url }}" class="block group cursor-pointer relative">
+                    <article class="pushpin relative bg-amber-50 p-4 shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:z-30
+                                {{ cycle from='-rotate-1', 'rotate-1', '-rotate-2', 'rotate-2' }}">
+
+                        <!-- TITEL MET LINE WRAPPING & KLEINERE FONT -->
+                        <div class="border-b-2 border-stone-800/10 pb-2 mb-3">
+                            <h3 id="event-title-{{ id }}"
+                                class="font-cute text-stone-900 text-lg sm:text-xl font-bold leading-snug break-words group-hover:text-red-800 transition-colors">
+                                {{ title }}
+                            </h3>
+                        </div>
+
+                        <div class="grid grid-cols-12 gap-3 items-center">
+
+                            <!-- DETAILS & SOCIALS -->
+                            <div class="{{ if omslag_klein }}col-span-7{{ else }}col-span-12{{ /if }} space-y-2">
+                                <div class="text-xs sm:text-sm font-semibold text-red-800 space-y-1">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-regular fa-calendar-days text-red-700 w-3.5 text-xs chalk-icon"></i>
+                                        <span class="truncate">{{ datum format="d F Y" }}</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-regular fa-clock text-red-700 w-3.5 text-xs chalk-icon"></i>
+                                        <span>{{ tijd ?? datum format="H:i" }}</span>
+                                    </div>
+                                </div>
+
+                                {{ if locatie }}
+                                <div class="text-xs text-stone-600 font-medium flex items-center gap-1.5 pt-0.5">
+                                    <i class="fa-solid fa-location-dot text-stone-500 w-3.5 text-xs chalk-icon"></i>
+                                    <span class="truncate">{{ locatie }}</span>
+                                </div>
+                                {{ /if }}
+
+                                <!-- SOCIALS -->
+                                {{ if facebook_url || instagram_url }}
+                                <div class="pt-1 flex items-center gap-2.5 relative z-40">
+                                    {{ if facebook_url }}
+                                    <span onclick="event.preventDefault(); event.stopPropagation(); window.open('{{ facebook_url }}', '_blank');"
+                                        class="text-stone-600 hover:text-sky-600 transition-colors cursor-pointer p-0.5"
+                                        title="Facebook Event">
+                                        <i class="fa-brands fa-facebook text-lg chalk-icon"></i>
+                                    </span>
+                                    {{ /if }}
+
+                                    {{ if instagram_url }}
+                                    <span onclick="event.preventDefault(); event.stopPropagation(); window.open('{{ instagram_url }}', '_blank');"
+                                        class="text-stone-600 hover:text-pink-600 transition-colors cursor-pointer p-0.5"
+                                        title="Instagram Event">
+                                        <i class="fa-brands fa-instagram text-lg chalk-icon"></i>
+                                    </span>
+                                    {{ /if }}
+                                </div>
+                                {{ /if }}
+                            </div>
+
+                            <!-- FOTO -->
+                            {{ if omslag_klein }}
+                            <div class="col-span-5 flex justify-end">
+                                <div class="relative tape-small bg-white p-1 shadow-md transform rotate-2 group-hover:rotate-0 transition-transform w-full max-w-[110px]">
+                                    <div class="aspect-[4/5] w-full overflow-hidden bg-stone-100">
+                                        <img src="{{ glide:omslag_klein width="250" height="312" fit="crop" }}"
+                                            alt="{{ title }}"
+                                            class="w-full h-full object-cover block filter contrast-[1.02]">
+                                    </div>
+                                </div>
+                            </div>
+                            {{ /if }}
+
+                        </div>
+
+                    </article>
+                </a>
+                {{ /collection:evenementen }}
+
+            </div>
+        </div>
+    </section>
+    {{ /if }}
+
+    <!-- PRIKBORD 2: LATER DIT JAAR -->
+    {{ if count_later > 0 }}
+    <section class="wood-frame-thin relative">
+        <div class="absolute -top-5 left-1/2 wood-label px-6 py-1 z-20">
+            <span class="font-fancy text-amber-950 text-xl sm:text-2xl font-bold uppercase tracking-wider">
+                Later Dit Jaar
+            </span>
+        </div>
+
+        <div class="cork-board p-5 sm:p-8">
+            <!-- Drie kolommen op grote schermen (xl:grid-cols-3) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start pt-4">
+
+                {{ collection:evenementen datum:is_after="+21 days" sort="datum:asc" }}
+                <!-- Volledig klikbare Kaart -->
+                <a href="{{ url }}" class="block group cursor-pointer relative">
+                    <article class="pushpin relative bg-amber-50 p-4 shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:z-30
+                                {{ cycle from='rotate-1', '-rotate-2', 'rotate-2', '-rotate-1' }}">
+
+                        <!-- TITEL MET LINE WRAPPING & KLEINERE FONT -->
+                        <div class="border-b-2 border-stone-800/10 pb-2 mb-3">
+                            <h3 id="event-title-{{ id }}"
+                                class="font-cute text-stone-900 text-lg sm:text-xl font-bold leading-snug break-words group-hover:text-red-800 transition-colors">
+                                {{ title }}
+                            </h3>
+                        </div>
+
+                        <div class="grid grid-cols-12 gap-3 items-center">
+
+                            <!-- DETAILS & SOCIALS -->
+                            <div class="{{ if omslag_klein }}col-span-7{{ else }}col-span-12{{ /if }} space-y-2">
+                                <div class="text-xs sm:text-sm font-semibold text-red-800 space-y-1">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-regular fa-calendar-days text-red-700 w-3.5 text-xs chalk-icon"></i>
+                                        <span class="truncate">{{ datum format="d F Y" }}</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-regular fa-clock text-red-700 w-3.5 text-xs chalk-icon"></i>
+                                        <span>{{ tijd ?? datum format="H:i" }}</span>
+                                    </div>
+                                </div>
+
+                                {{ if locatie }}
+                                <div class="text-xs text-stone-600 font-medium flex items-center gap-1.5 pt-0.5">
+                                    <i class="fa-solid fa-location-dot text-stone-500 w-3.5 text-xs chalk-icon"></i>
+                                    <span class="truncate">{{ locatie }}</span>
+                                </div>
+                                {{ /if }}
+
+                                <!-- SOCIALS -->
+                                {{ if facebook_url || instagram_url }}
+                                <div class="pt-1 flex items-center gap-2.5 relative z-40">
+                                    {{ if facebook_url }}
+                                    <span onclick="event.preventDefault(); event.stopPropagation(); window.open('{{ facebook_url }}', '_blank');"
+                                        class="text-stone-600 hover:text-sky-600 transition-colors cursor-pointer p-0.5"
+                                        title="Facebook Event">
+                                        <i class="fa-brands fa-facebook text-lg chalk-icon"></i>
+                                    </span>
+                                    {{ /if }}
+
+                                    {{ if instagram_url }}
+                                    <span onclick="event.preventDefault(); event.stopPropagation(); window.open('{{ instagram_url }}', '_blank');"
+                                        class="text-stone-600 hover:text-pink-600 transition-colors cursor-pointer p-0.5"
+                                        title="Instagram Event">
+                                        <i class="fa-brands fa-instagram text-lg chalk-icon"></i>
+                                    </span>
+                                    {{ /if }}
+                                </div>
+                                {{ /if }}
+                            </div>
+
+                            <!-- FOTO -->
+                            {{ if omslag_klein }}
+                            <div class="col-span-5 flex justify-end">
+                                <div class="relative tape-small bg-white p-1 shadow-md transform -rotate-2 group-hover:rotate-0 transition-transform w-full max-w-[110px]">
+                                    <div class="aspect-[4/5] w-full overflow-hidden bg-stone-100">
+                                        <img src="{{ glide:omslag_klein width="250" height="312" fit="crop" }}"
+                                            alt="{{ title }}"
+                                            class="w-full h-full object-cover block filter contrast-[1.02]">
+                                    </div>
+                                </div>
+                            </div>
+                            {{ /if }}
+
+                        </div>
+
+                    </article>
+                </a>
+                {{ /collection:evenementen }}
+
+            </div>
+        </div>
+    </section>
+    {{ /if }}
+
+    {{ /if }}
+
+</div>
+
+{{ vite src="resources/js/evenementen.js" }}

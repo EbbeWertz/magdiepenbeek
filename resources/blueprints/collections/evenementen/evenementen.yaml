@@ -1,0 +1,90 @@
+title: Evenementen
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Evenement Omslag'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: omslag_klein
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Omslagfoto Klein'
+              validate:
+                - required
+          -
+            handle: omslag_groot
+            field:
+              container: assets
+              max_files: 1
+              min_files: 1
+              type: assets
+              display: 'Omslagfoto Groot'
+              validate:
+                - required
+          -
+            handle: locatie
+            field:
+              type: text
+              display: Locatie
+              validate:
+                - required
+          -
+            handle: datum
+            field:
+              type: date
+              display: Datum
+              validate:
+                - required
+          -
+            handle: tijd
+            field:
+              type: time
+              display: Tijd
+              validate:
+                - required
+      -
+        display: 'Evenement Inhoud'
+        fields:
+          -
+            handle: beschrijving
+            field:
+              type: textarea
+              display: Beschrijving
+              validate:
+                - required
+      -
+        display: Socials
+        fields:
+          -
+            handle: facebook_url
+            field:
+              type: link
+              display: Facebook
+          -
+            handle: instagram_url
+            field:
+              type: link
+              display: Instagram
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
