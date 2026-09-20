@@ -7,7 +7,13 @@
     <ul class="flex items-center gap-6 font-cute text-lg">
         {{ nav:hoofdnavigatie }}
         <li>
-            <a href="{{ url }}" class="text-gray-300 hover:text-chalk-yellow transition-colors inline-flex items-center gap-2">
+            <a href="{{ url }}"
+               class="transition-colors inline-flex items-center gap-2 relative py-1
+                      {{ if is_current || is_parent }}
+                          text-chalk-yellow font-bold border-b-2 border-gray-400
+                      {{ else }}
+                          text-gray-300 hover:text-chalk-yellow
+                      {{ /if }}">
                 {{ iconify:iconify_icon class="w-5 h-5" }}
                 <span>{{ title }}</span>
             </a>

@@ -2,7 +2,7 @@
 id: 773f5cde-ad2e-4af1-a81c-bc88e55c4cbb
 blueprint: fotoalbum
 title: 'MAG goes Winterland 2026'
-jaar: '2025'
+jaar: '2026'
 maand: Februari
 cover: 'images/albums/MAG schaatsen Winterland/Messenger_creation_47BBB13F-62B4-45B1-9C94-EEFEA3DA1AD4.jpeg'
 fotos:
@@ -44,5 +44,5 @@ fotos:
   - 'images/albums/MAG schaatsen Winterland/Messenger_creation_F08B444A-3F05-47AE-878A-6F2A29BA2BFA.jpeg'
   - 'images/albums/MAG schaatsen Winterland/Messenger_creation_FE0186CD-7567-4A2F-A353-410FF6059B46.jpeg'
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789917086
+updated_at: 1789917562
 ---
