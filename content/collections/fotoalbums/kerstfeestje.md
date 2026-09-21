@@ -1,0 +1,92 @@
+---
+id: 6149af2f-b7c2-414f-a35f-6802dd8a1853
+blueprint: fotoalbum
+title: Kerstfeestje
+jaar: '2025'
+maand: December
+cover: images/albums/2025-2026/Kerstfeestje/att.zwA23URihkANmUcrHQyx2xRT3AU0gxtfTvCESwlDPR0.jpg
+fotos:
+  - images/albums/2025-2026/Kerstfeestje/20251217_193851.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_193858.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_193901.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_193907.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_210457.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_210500.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_210846.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_210850.jpg
+  - images/albums/2025-2026/Kerstfeestje/20251217_215942.jpg
+  - images/albums/2025-2026/Kerstfeestje/att.zwA23URihkANmUcrHQyx2xRT3AU0gxtfTvCESwlDPR0.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG_8412.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8415.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8415(1).webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8424.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8429.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8436.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8441.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8453.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8475.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG_8481.webp
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0000.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0001.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0002.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0003.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0004.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0005.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0006.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0007.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0008.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0009.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0010.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0011.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0016.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0017.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0021.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0022.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0023.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0025.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0026.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0028.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0030.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0034.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0035.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0039.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0040.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0044.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0045.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0046.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0048.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0050.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0052.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0053.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0055.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0057.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0059.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0061.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0062.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0064.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0065.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0066.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0068.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0069.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0071.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0073.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0075.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0078.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0080.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0082.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0083.jpg
+  - images/albums/2025-2026/Kerstfeestje/IMG-20251218-WA0084.jpg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_1C6A0BFD-B388-4DFD-BA62-CB7E5015496D.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_7D4C22A3-31F3-4C89-97E4-C7C595D59E1B.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_7E761940-0912-4C17-982C-E72E8CFF34D6.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_9A809C96-384E-41C3-A55F-FE7F99147F04.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_47EE16AE-DFCD-48DF-A62C-5376D90AA0C9.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_82C08DEB-888B-4B32-A097-59F3B88C0C67.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_95C557F1-B903-46C2-BAD9-3581AB86BFF0.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_6702E02E-7111-4CD3-AE2F-C2B32D33146D.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_C3541699-174F-433B-A9B2-8B1CE5ACF4F4.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Messenger_creation_F97B2012-F96A-4F69-BE7B-31148AC1BD2F.jpeg
+  - images/albums/2025-2026/Kerstfeestje/Snapchat-1920309034.jpg
+updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
+updated_at: 1789953019
+---

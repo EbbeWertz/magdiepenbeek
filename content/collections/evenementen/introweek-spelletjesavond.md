@@ -21,7 +21,7 @@ beschrijving: |-
   Studens Totaliter Ludens
   Mater Artes Gymnastica
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789932492
+updated_at: 1789949031
 facebook_url: 'https://www.facebook.com/events/1494103419143110'
-instagram_url: 'https://www.instagram.com/p/Ddd7QzsDBt0/'
+instagram_url: 'https://www.instagram.com/p/DdVuUzRkTu7'
 ---

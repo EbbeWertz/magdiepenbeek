@@ -48,3 +48,6 @@ preferences:
       dark-ui-accent-text: '#23D3EE'
       dark-global-header-bg: '#121F25'
   color_mode: light
+  assets:
+    assets:
+      per_page: 100
