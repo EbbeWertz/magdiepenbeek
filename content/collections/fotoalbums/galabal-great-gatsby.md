@@ -236,5 +236,6 @@ fotos:
   - images/albums/2025-2026/Gala/IMG_9997.jpg
   - images/albums/2025-2026/Gala/IMG_9999.jpg
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789953420
+updated_at: 1790015184
+maand_nr: 7
 ---

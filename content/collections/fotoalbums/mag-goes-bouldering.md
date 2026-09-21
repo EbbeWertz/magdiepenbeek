@@ -24,5 +24,6 @@ fotos:
   - images/albums/2025-2026/Boulder/IMG20251125201349.jpg
   - images/albums/2025-2026/Boulder/Messenger_creation_ABF27D09-1569-4832-9547-4DEE75442ED3.jpeg
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789952257
+updated_at: 1790015205
+maand_nr: 11
 ---

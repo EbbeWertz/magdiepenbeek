@@ -167,10 +167,15 @@
         </div>
     </header>
 
+    {{ months_map = [
+        'januari' => '01', 'februari' => '02', 'maart' => '03', 'april' => '04',
+        'mei' => '05', 'juni' => '06', 'juli' => '07', 'augustus' => '08',
+        'september' => '09', 'oktober' => '10', 'november' => '11', 'december' => '12'
+    ] }}
     <!-- ALBUMS GRID (2 KOLOMMEN OP MOBIEL) -->
     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
 
-        {{ collection:fotoalbums }}
+        {{ collection:fotoalbums sort="jaar:desc|maand:desc" sort_type="month" }}
             <div class="album-card cursor-pointer group h-full" data-album-id="{{ id }}">
 
                 <!-- HET FOTOBOEK KAFT (Desktop hoger, Mobiel ietsje lager) -->

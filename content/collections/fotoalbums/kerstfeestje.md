@@ -88,5 +88,6 @@ fotos:
   - images/albums/2025-2026/Kerstfeestje/Messenger_creation_F97B2012-F96A-4F69-BE7B-31148AC1BD2F.jpeg
   - images/albums/2025-2026/Kerstfeestje/Snapchat-1920309034.jpg
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789953019
+updated_at: 1790015197
+maand_nr: 12
 ---

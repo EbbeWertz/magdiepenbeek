@@ -31,6 +31,11 @@ tabs:
               min_files: 1
               type: assets
               display: 'Cover Foto'
+          -
+            handle: maand_nr
+            field:
+              type: integer
+              display: Maand
       -
         display: Inhoud
         fields:
