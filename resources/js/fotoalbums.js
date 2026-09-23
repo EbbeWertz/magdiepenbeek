@@ -18,15 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightCaption = document.getElementById('modal-right-caption');
     const rightBox = document.getElementById('modal-right-photo-box');
     const rightPageNum = document.getElementById('modal-right-page-num');
+    const rightPageContainer = document.getElementById('modal-right-page-container');
 
     const prevBtn = document.getElementById('modal-prev-btn');
     const nextBtn = document.getElementById('modal-next-btn');
 
     let currentAlbum = null;
-    let currentSpreadIndex = 0;
+    let currentIndex = 0; // ALWAYS tracks the active PHOTO index (0-based)
 
+    // Accurate match for CSS Tailwind 'md' breakpoint (< 768px)
     function isMobile() {
-        return window.innerWidth < 768;
+        return window.matchMedia('(max-width: 767px)').matches;
     }
 
     let prevAnnotation = null;
@@ -55,18 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateAnnotations() {
         if (prevAnnotation) {
-            if (prevBtn.disabled) {
-                prevAnnotation.hide();
-            } else {
-                prevAnnotation.show();
-            }
+            prevBtn.disabled ? prevAnnotation.hide() : prevAnnotation.show();
         }
         if (nextAnnotation) {
-            if (nextBtn.disabled) {
-                nextAnnotation.hide();
-            } else {
-                nextAnnotation.show();
-            }
+            nextBtn.disabled ? nextAnnotation.hide() : nextAnnotation.show();
         }
     }
 
@@ -76,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!dataScript) return;
 
             currentAlbum = JSON.parse(dataScript.textContent);
-            currentSpreadIndex = 0;
+            currentIndex = 0; 
 
             modalTitle.textContent = currentAlbum.title;
             if (modalDate) modalDate.textContent = currentAlbum.datum || '';
@@ -97,9 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
     if (modal) {
         modal.addEventListener('click', (e) => {
@@ -108,13 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSpread() {
-        if (!currentAlbum || !currentAlbum.fotos) return;
+        if (!currentAlbum || !currentAlbum.fotos || currentAlbum.fotos.length === 0) return;
 
         const totalFotos = currentAlbum.fotos.length;
         const mobile = isMobile();
 
         if (mobile) {
-            const photoIndex = currentSpreadIndex;
+            // MOBILE: Clear and disable the right container completely
+            if (rightPageContainer) rightPageContainer.style.display = 'none';
+            if (rightImg) rightImg.src = '';
+            if (rightCaption) rightCaption.textContent = '';
+
+            const photoIndex = currentIndex;
 
             if (photoIndex < totalFotos) {
                 const item = currentAlbum.fotos[photoIndex];
@@ -127,14 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 leftPageNum.textContent = '';
             }
 
-            spreadCounter.textContent = `${currentSpreadIndex + 1} / ${totalFotos}`;
-            prevBtn.disabled = (currentSpreadIndex === 0);
-            nextBtn.disabled = (currentSpreadIndex >= totalFotos - 1);
+            spreadCounter.textContent = `${photoIndex + 1} / ${totalFotos}`;
+            prevBtn.disabled = (photoIndex <= 0);
+            nextBtn.disabled = (photoIndex >= totalFotos - 1);
 
         } else {
-            const leftPhotoIndex = currentSpreadIndex * 2;
-            const rightPhotoIndex = leftPhotoIndex + 1;
+            // DESKTOP: Reset display for right page container
+            if (rightPageContainer) rightPageContainer.style.display = '';
 
+            const spreadIndex = Math.floor(currentIndex / 2);
+            const leftPhotoIndex = spreadIndex * 2;
+            const rightPhotoIndex = leftPhotoIndex + 1;
+            const totalSpreads = Math.ceil(totalFotos / 2);
+
+            // Left Page
             if (leftPhotoIndex < totalFotos) {
                 const item = currentAlbum.fotos[leftPhotoIndex];
                 leftImg.src = item.url;
@@ -146,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 leftPageNum.textContent = '';
             }
 
+            // Right Page
             if (rightPhotoIndex < totalFotos) {
                 const item = currentAlbum.fotos[rightPhotoIndex];
                 rightImg.src = item.url;
@@ -157,11 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 rightPageNum.textContent = '';
             }
 
-            const totalSpreads = Math.ceil(totalFotos / 2);
-            spreadCounter.textContent = `${currentSpreadIndex + 1} / ${totalSpreads}`;
-
-            prevBtn.disabled = (currentSpreadIndex === 0);
-            nextBtn.disabled = (currentSpreadIndex >= totalSpreads - 1);
+            spreadCounter.textContent = `${spreadIndex + 1} / ${totalSpreads}`;
+            prevBtn.disabled = (spreadIndex <= 0);
+            nextBtn.disabled = (spreadIndex >= totalSpreads - 1);
         }
 
         updateAnnotations();
@@ -169,30 +171,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         if (!modal.classList.contains('hidden') && currentAlbum) {
-            currentSpreadIndex = 0;
             renderSpread();
         }
     });
 
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-            if (currentSpreadIndex > 0) {
-                currentSpreadIndex--;
-                renderSpread();
+            if (!currentAlbum || !currentAlbum.fotos) return;
+
+            const mobile = isMobile();
+
+            if (mobile) {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    renderSpread();
+                }
+            } else {
+                const spreadIndex = Math.floor(currentIndex / 2);
+                if (spreadIndex > 0) {
+                    currentIndex = (spreadIndex - 1) * 2;
+                    renderSpread();
+                }
             }
         });
     }
 
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            const mobile = isMobile();
-            const maxIndex = mobile
-                ? currentAlbum.fotos.length - 1
-                : Math.ceil(currentAlbum.fotos.length / 2) - 1;
+            if (!currentAlbum || !currentAlbum.fotos) return;
 
-            if (currentSpreadIndex < maxIndex) {
-                currentSpreadIndex++;
-                renderSpread();
+            const totalFotos = currentAlbum.fotos.length;
+            const mobile = isMobile();
+
+            if (mobile) {
+                if (currentIndex < totalFotos - 1) {
+                    currentIndex++;
+                    renderSpread();
+                }
+            } else {
+                const spreadIndex = Math.floor(currentIndex / 2);
+                const totalSpreads = Math.ceil(totalFotos / 2);
+
+                if (spreadIndex < totalSpreads - 1) {
+                    currentIndex = (spreadIndex + 1) * 2;
+                    renderSpread();
+                }
             }
         });
     }

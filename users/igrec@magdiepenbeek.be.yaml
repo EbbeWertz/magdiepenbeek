@@ -15,8 +15,9 @@ preferences:
       view: list
     evenementen:
       view: list
+      after_save: listing
   locale: nl
-  formatting_locale: en
+  formatting_locale: nl
   theme:
     id: 26
     name: 'SDNO 2026'

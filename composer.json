@@ -12,8 +12,10 @@
     "require": {
         "php": "^8.3",
         "eminos/statamic-iconify": "^2.1",
+        "justbetter/statamic-image-optimize": "^5.2",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
+        "mitydigital/sitemapamic": "^3.5",
         "oliweb/statamic-privacy-analytics": "^4.10",
         "statamic/cms": "^6.0",
         "thirtybittech/mini-metrics": "^1.0"

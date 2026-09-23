@@ -1,0 +1,57 @@
+---
+id: de869f81-56b9-42ff-8608-2ac8dc3bc255
+blueprint: fotoalbum
+title: 'MAG goes Hasselt Kermis'
+jaar: '2026'
+maand: September
+cover: images/albums/2026-2027/hasselt-kermis/img-20260923-wa0020.jpg
+maand_nr: 9
+fotos:
+  - images/albums/2026-2027/hasselt-kermis/20260923_223550.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0004.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0005.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0006.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0007.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0008.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0010.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0020.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260923-wa0021.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0000.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0001.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0002.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0003.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0004.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0005.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0006.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0007.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0008.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0009.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0010.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0011.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0012.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0013.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0014.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0015.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0016.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0017.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0018.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0019.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0020.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0021.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0022.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0023.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0024.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0025.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0026.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0027.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0028.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0029.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0030.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0031.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0032.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0033.jpg
+  - images/albums/2026-2027/hasselt-kermis/img-20260924-wa0034.jpg
+  - images/albums/2026-2027/hasselt-kermis/received_1418306253612046.jpeg
+updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
+updated_at: 1790206138
+---

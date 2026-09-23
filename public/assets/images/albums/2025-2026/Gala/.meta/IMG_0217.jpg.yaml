@@ -1,7 +1,8 @@
-data: {}
-size: 3451370
-last_modified: 1789950516
-width: 5202
-height: 3464
+data:
+  image-optimized: '1'
+size: 121488
+last_modified: 1790206845
+width: 1440
+height: 959
 mime_type: image/jpeg
 duration: null

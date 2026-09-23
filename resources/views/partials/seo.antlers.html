@@ -5,3 +5,47 @@
 <meta name="author" content="Mater Artes Gymnastica" />
 <meta name="googlebot" content="index, follow" />
 <meta name="bingbot" content="index, follow" />
+
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "{{ site:url }}/#organization",
+          "name": "Mater Artes Gymnastica",
+          "alternateName": "MAG",
+          "url": "{{ site:url }}",
+          "logo": "{{ asset:favicon.png }}",
+          "foundingDate": "1995-09-15",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Agoralaan Gebouw B",
+            "postalCode": "3590",
+            "addressLocality": "Diepenbeek",
+            "addressCountry": "BE"
+          },
+          "sameAs": [
+            "{{ contact:facebook }}",
+            "{{ contact:instagram }}"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ site:url }}/#website",
+          "url": "{{ site:url }}",
+          "name": "Mater Artes Gymnastica",
+          "publisher": { "@id": "{{ site:url }}/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "{{ permalink }}/#webpage",
+          "url": "{{ permalink }}",
+          "name": "{{ seo_title }}",
+          "description": "{{ seo_description }}",
+          "isPartOf": { "@id": "{{ site:url }}/#website" }
+        }
+      ]
+    }
+    </script>
