@@ -16,7 +16,7 @@ preferences:
     evenementen:
       view: list
   locale: nl
-  formatting_locale: nl
+  formatting_locale: en
   theme:
     id: 26
     name: 'SDNO 2026'
@@ -51,3 +51,12 @@ preferences:
   assets:
     assets:
       per_page: 100
+  nav:
+    tools:
+      reorder:
+        - 'tools::forms'
+        - 'tools::updates'
+        - 'tools::addons'
+        - 'tools::utilities::mini_metrics'
+      items:
+        'tools::utilities::mini_metrics': '@move'
