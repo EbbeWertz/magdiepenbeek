@@ -1,0 +1,42 @@
+---
+id: 02b27366-ee5c-4022-926f-5c3bce670a74
+blueprint: fotoalbum
+title: Spelletjesavond
+jaar: '2026'
+maand: September
+cover: images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.50.jpeg
+maand_nr: 9
+fotos:
+  - images/albums/2026-2027/introweek--spellentjes/20260922_204725.jpg
+  - images/albums/2026-2027/introweek--spellentjes/20260922_204920.jpg
+  - images/albums/2026-2027/introweek--spellentjes/20260922_205000.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0020.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0021.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0022.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0023.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0025.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0026.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0027.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0028.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0029.jpg
+  - images/albums/2026-2027/introweek--spellentjes/img-20260922-wa0030.jpg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.50.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.150.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.251.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.262.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.264.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.275.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.276.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.287.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.290.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.298.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.40.299.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.44.04.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.44.014.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.44.043.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.44.104.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-19.44.302.jpeg
+  - images/albums/2026-2027/introweek--spellentjes/whatsapp-image-2026-09-22-at-20.24.074.jpeg
+updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
+updated_at: 1790120901
+---

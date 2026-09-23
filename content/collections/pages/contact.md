@@ -5,5 +5,10 @@ title: Contact
 author: 51279f56-efd1-4a7d-8fad-dec504fffda9
 template: contact
 updated_by: 51279f56-efd1-4a7d-8fad-dec504fffda9
-updated_at: 1789901271
+updated_at: 1790153608
+pagina_subtitel: 'Vragen, doop-info of lid worden? Laat van je horen!'
+pagina_titel:
+  - Contact
+  - '&'
+  - Info
 ---

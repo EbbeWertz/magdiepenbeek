@@ -10,7 +10,6 @@
     {{ vite src="resources/css/site.css|resources/js/site.js" }}
 
     <style>
-        /* Universele donkere krijtbordwand met subtiel stippenpatroon */
         body.wall-bg {
             background-color: #12161a;
             background-image:
@@ -20,7 +19,6 @@
             background-attachment: fixed;
         }
 
-        /* Custom scrollbar voor de archief sidebar */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -43,21 +41,46 @@
 
 <body class="wall-bg text-chalk-white antialiased min-h-screen flex flex-col font-cute overflow-x-hidden">
 
-    <!-- Header Block -->
-    {{ yield:header }}
+    {{ if {yield:alternative_header} }}
+    {{ yield:alternative_header }}
+    {{ else }}
     <header class="p-3 sm:p-4 md:p-6 backdrop-blur-sm">
         {{ partial:nav/default }}
-    </header>
-    {{ /yield:header }}
 
-    <!-- Main Content -->
+        {{ if {yield:back_link} }}
+        <div class="text-left mt-4 mb-6 sm:mt-6 sm:mb-8">
+            <a href="{{ yield:back_link }}"
+                class="inline-flex items-center gap-2 font-chalk-thin text-chalk-yellow hover:text-chalk-yellow transition-colors text-base sm:text-xl group">
+                <i
+                    class="ml-6 fa-solid fa-arrow-left text-xs sm:text-base group-hover:-translate-x-1 transition-transform chalk-icon"></i>
+                <span>{{ yield:back_link_text ?? 'Terug naar home' }}</span>
+            </a>
+        </div>
+        {{ /if }}
+
+        {{ if pagina_titel }}
+        <h1 class="font-chalk-hatched text-3xl sm:text-5xl md:text-6xl font-bold tracking-wide leading-tight mt-2 width-full text-center">
+            {{ pagina_titel }}
+                <span class="{{ index % 2 == 1 ? 'text-chalk-blue' : 'text-chalk-red' }}">{{ value }}</span>{{ unlesslast }} {{ /unlesslast }}
+            {{ /pagina_titel }}
+        </h1>
+        {{ /if }}
+
+        {{ if pagina_subtitel }}
+        <h2 class="font-chalk-thin text-chalk-yellow text-base sm:text-xl mt-2 sm:mt-3 max-w-2xl mx-auto width-full text-center">
+            {{ pagina_subtitel }}
+        </h2>
+        {{ /if }}
+    </header>
+    {{ /if }}
+
     <main class="flex-1 w-full px-4 sm:px-6 md:px-8">
         {{ template_content }}
     </main>
 
-    <!-- Footer Block -->
     {{ yield:footer }}
-    <footer class="border-t border-amber-100/10 py-8 md:py-10 bg-stone-950/60 backdrop-blur-sm text-stone-400 font-cute text-base mt-auto">
+    <footer
+        class="border-t border-amber-100/10 py-8 md:py-10 bg-stone-950/60 backdrop-blur-sm text-stone-400 font-cute text-base mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
 
             <!-- KOLOM 1: INFO & OPRICHTING -->
@@ -76,10 +99,12 @@
                 <h3 class="font-chalk-hatched text-chalk-blue text-xl tracking-wide">Contact & Locatie</h3>
                 {{ contact }}
                 <p class="text-stone-300 text-sm sm:text-base">
-                    <i class="fa-solid fa-location-dot mr-2 text-chalk-yellow"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590 Diepenbeek' }}
+                    <i class="fa-solid fa-location-dot mr-2 text-chalk-yellow"></i>{{ adres ?? 'Agoralaan Gebouw B, 3590
+                    Diepenbeek' }}
                 </p>
                 <p class="text-sm sm:text-base">
-                    <a href="mailto:{{ email }}" class="text-stone-300 hover:text-chalk-yellow transition-colors break-all">
+                    <a href="mailto:{{ email }}"
+                        class="text-stone-300 hover:text-chalk-yellow transition-colors break-all">
                         <i class="fa-solid fa-envelope mr-2 text-chalk-yellow"></i>{{ email }}
                     </a>
                 </p>
@@ -93,13 +118,15 @@
                     {{ contact }}
                     {{ if facebook }}
                     <a href="{{ facebook }}" target="_blank" rel="noopener"
-                        class="text-stone-300 hover:text-sky-400 text-3xl md:text-2xl transition-colors p-1" title="Facebook">
+                        class="text-stone-300 hover:text-sky-400 text-3xl md:text-2xl transition-colors p-1"
+                        title="Facebook">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     {{ /if }}
                     {{ if instagram }}
                     <a href="{{ instagram }}" target="_blank" rel="noopener"
-                        class="text-stone-300 hover:text-pink-400 text-3xl md:text-2xl transition-colors p-1" title="Instagram">
+                        class="text-stone-300 hover:text-pink-400 text-3xl md:text-2xl transition-colors p-1"
+                        title="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     {{ /if }}
@@ -162,4 +189,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -73,20 +73,6 @@
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-16">
 
-    <!-- HEADER: ROOD-BLAUW-ROOD KRIJT TITEL -->
-    <header class="text-center mb-12">
-        <div class="inline-block relative">
-            <h1 class="font-chalk-hatched text-4xl md:text-6xl font-bold tracking-wide">
-                <span class="text-chalk-red">Evenementen</span>
-                <span class="text-chalk-blue">&</span>
-                <span class="text-chalk-red">Activiteiten</span>
-            </h1>
-            <p class="font-chalk-thin text-amber-100/80 text-lg md:text-xl mt-2 italic">
-                Wat er te doen is bij onze vereniging
-            </p>
-        </div>
-    </header>
-
     <!-- BEREKEN AANTAL EVENEMENTEN PER BOARD -->
     {{ count_binnenkort = {collection:count from="evenementen" datum:is_after="yesterday" datum:is_before="+21 days"} }}
     {{ count_later = {collection:count from="evenementen" datum:is_after="+21 days"} }}

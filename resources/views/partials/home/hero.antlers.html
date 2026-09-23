@@ -1,0 +1,102 @@
+<div class="max-w-7xl mx-auto w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-8">
+
+        {{ algemeen }}
+        <!-- LEFT COLUMN -->
+        <div
+            class="lg:col-span-7 flex flex-col justify-between h-full lg:h-[58vh] text-left lg:pl-2 z-10 relative space-y-6 lg:space-y-0">
+            <div class="relative w-full">
+                <div
+                    class="italic absolute -top-5 right-2 lg:-top-[3.2vh] lg:right-[1.5vw] font-chalk-thin text-base sm:text-lg lg:text-[1.6vw] text-chalk-white opacity-90 rotate-[6deg] border-b border-dashed border-chalk-white/60 pb-0.5">
+                    Est. 1995
+                </div>
+
+                <h1
+                    class="font-chalk-hatched text-[8vw] sm:text-6xl lg:text-[4.2vw] font-bold tracking-tight leading-tight pt-4 lg:pt-2 whitespace-nowrap">
+                    <span class="text-chalk-red">Mater</span>
+                    <span class="text-chalk-blue">Artes</span>
+                    <span class="text-chalk-red">Gymnastica</span>
+                </h1>
+
+                <div class="mt-4 lg:mt-[2.5vh] flex flex-wrap items-center gap-2 sm:gap-3 relative">
+                    <p id="leuze-text"
+                        class="font-chalk-thin text-xl sm:text-2xl lg:text-[2vw] text-chalk-yellow tracking-wider opacity-90 inline-block">
+                        "Studens totaliter ludens"
+                    </p>
+
+                    <button onclick="toggleStickyNote()"
+                        class="text-chalk-white/60 hover:text-chalk-yellow transition-colors font-chalk-thin italic text-sm lg:text-[0.9vw] cursor-pointer flex items-center gap-1 opacity-80 hover:opacity-100 p-1"
+                        title="Klik om te vertalen">
+                        <span>[?]</span>
+                    </button>
+
+                    <!-- POPUP NOTE -->
+                    <div id="sticky-note"
+                        class="hidden absolute top-10 left-0 lg:top-[-1vh] lg:left-[23vw] w-64 bg-amber-100 text-gray-900 p-4 rounded-sm shadow-xl transform rotate-2 z-30 tape-sticky border border-amber-200/80">
+                        <button onclick="toggleStickyNote()"
+                            class="absolute top-1 right-2 text-gray-500 hover:text-red-600 text-sm font-bold">
+                            ✕
+                        </button>
+                        <p
+                            class="font-chalk-hatched text-sm text-amber-900 font-bold border-b border-amber-300 pb-1 mb-2">
+                            Spiekbriefje
+                        </p>
+                        <p class="font-chalk-thin italic text-sm text-gray-800 leading-snug">
+                            <strong>"Studens totaliter ludens"</strong><br>
+                            wil zeggen: <span class="text-amber-900 font-semibold">"Al spelend leren"</span>.
+                        </p>
+                        <div class="text-xs lg:text-[0.65vw] text-gray-400 text-right mt-2 italic">~ MAG 1995</div>
+                    </div>
+                </div>
+
+                <p
+                    class="font-chalk-thin italic text-base sm:text-lg lg:text-[1.2vw] text-chalk-white/70 mt-3 lg:mt-[1.5vh]">
+                    Studentenvereniging Lerarenopleiding Secundair Onderwijs • UCLL Diepenbeek
+                </p>
+            </div>
+
+            <div id="cta-container"
+                class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-[2.5vw] font-chalk-thin italic text-lg sm:text-xl lg:text-[1.4vw] transition-opacity duration-300 pb-2">
+                <div class="relative inline-block text-center sm:text-left">
+                    <a href="{{home_cta1_url}}" id="btn-lid" target="_blank"
+                        class="inline-flex items-center justify-center gap-3 text-chalk-yellow px-4 sm:px-5 py-2 transition-transform hover:scale-105 opacity-95 w-full sm:w-auto">
+                        {{ iconify:home_cta1_icon class="chalk-icon text-xl sm:text-2xl lg:text-[1.5vw]" }}
+                        <span>{{home_cta1_label}}</span>
+                    </a>
+                </div>
+
+                <div class="relative inline-block text-center sm:text-left">
+                    <a href="{{home_cta2_url}}" id="btn-events"
+                        class="inline-flex items-center justify-center gap-3 text-chalk-white px-4 sm:px-5 py-2 transition-transform hover:scale-105 opacity-90 w-full sm:w-auto">
+                        {{ iconify:home_cta2_icon class="chalk-icon text-xl sm:text-2xl lg:text-[1.5vw]" }}
+                        <span>{{home_cta2_label}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: POLAROID WITH LINK TO /PRAESIDIUM -->
+        <div class="lg:col-span-5 flex justify-center items-center z-10 w-full">
+            <a href="/praesidium" class="group block w-full max-w-sm sm:max-w-md">
+                <div
+                    class="bg-white p-3 pb-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gray-100 transform rotate-1 group-hover:rotate-0 group-hover:scale-[1.02] transition-all duration-300 relative tape-top flex flex-col justify-between">
+
+                    <div class="overflow-hidden border border-gray-100">
+                        <img src="{{ homepage_foto }}" alt="{{ homepage_foto:alt ?? 'Praesidium MAG Groepsfoto' }}"
+                            class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+
+                    <div class="flex justify-between items-center px-2 pt-3 text-gray-800">
+                        <p
+                            class="font-cute text-base sm:text-lg lg:text-[1.3vw] font-bold tracking-wide group-hover:text-red-800 transition-colors">
+                            {{ homepage_foto_caption }}
+                        </p>
+                        <i
+                            class="fa-solid fa-arrow-right text-stone-400 group-hover:text-red-800 group-hover:translate-x-1 transition-all chalk-icon"></i>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        {{ /algemeen }}
+
+    </div>

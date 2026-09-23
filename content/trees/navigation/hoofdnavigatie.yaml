@@ -2,7 +2,7 @@ tree:
   -
     id: e3ebd1bb-eb66-41c6-99b0-e606ce2666e2
     title: 'Over Ons'
-    url: /about
+    url: /over-ons
     data:
       iconify_icon:
         name: 'fa-regular:address-card'
