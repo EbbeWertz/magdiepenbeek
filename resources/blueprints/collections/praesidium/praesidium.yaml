@@ -9,8 +9,12 @@ tabs:
           -
             handle: title
             field:
+              type: hidden
+              required: false
+          -
+            handle: jaar
+            field:
               type: text
-              required: true
               validate:
                 - required
               display: Jaar

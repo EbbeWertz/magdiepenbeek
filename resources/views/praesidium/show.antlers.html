@@ -1,3 +1,6 @@
+{{ pagina_titel =  ["Praesidium", jaar] }}
+
+
 <style>
     /* Organische, licht-onregelmatige randen voor de polaroids */
     .polaroid-border {
@@ -70,22 +73,6 @@
 
 <div class="max-w-7xl mx-auto px-3 sm:px-6 py-5 sm:py-8 space-y-6 sm:space-y-10">
 
-    <!-- HEADER -->
-    <header class="text-center">
-        <div class="inline-flex flex-col items-center">
-            <h1 class="font-chalk-hatched text-3xl sm:text-5xl md:text-6xl font-bold tracking-wide">
-                <span class="text-chalk-red">Praesidium</span>
-                <span class="text-chalk-blue">{{ title }}</span>
-            </h1>
-
-            {{ if lustrum }}
-            <div class="mt-1 sm:mt-2 text-amber-200 flex justify-center items-center">
-                {{ partial:laurel_wreath class="w-12 sm:w-16 h-auto" }}
-            </div>
-            {{ /if }}
-        </div>
-    </header>
-
     <!-- MAIN GRID CONTAINER -->
     <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-start">
 
@@ -109,7 +96,7 @@
                             <!-- Foto Container -->
                             <div class="aspect-[16/10] w-full overflow-hidden">
                                 <img src="{{ glide:foto width="1200" height="750" fit="crop" }}"
-                                    alt="Groepsfoto Praesidium {{ title }}"
+                                    alt="Groepsfoto Praesidium {{ jaar }}"
                                     class="w-full h-full object-cover filter contrast-[1.03] brightness-[0.98]"
                                     loading="eager">
                             </div>
@@ -190,14 +177,14 @@
                 </summary>
 
                 <div class="mt-3 pr-1 space-y-1">
-                    {{ collection:praesidium sort="title:desc" }}
+                    {{ collection:praesidium sort="jaar:desc" }}
                     <a href="{{ url }}" class="archive-year-link flex items-center justify-between px-2 py-1 text-xl sm:text-2xl transition-colors
                     {{ if current_uri == url }}
                         text-yellow-100 translate-x-1 underline
                     {{ else }}
                         text-gray-300 hover:text-yellow-100
                     {{ /if }}" data-active="{{ if current_uri == url }}true{{ else }}false{{ /if }}">
-                        <span>{{ title }}</span>
+                        <span>{{ jaar }}</span>
 
                         {{ if lustrum }}
                         <span class="inline-flex items-center shrink-0 ml-1" title="Lustrum {{ lustrum_jaar }}">
@@ -218,14 +205,14 @@
                 </div>
 
                 <div class="pr-2 space-y-1">
-                    {{ collection:praesidium sort="title:desc" }}
+                    {{ collection:praesidium sort="jaar:desc" }}
                     <a href="{{ url }}" class="archive-year-link flex items-center justify-between px-3 py-1.5 text-2xl transition-colors
                     {{ if current_uri == url }}
                         text-yellow-100 translate-x-1 underline
                     {{ else }}
                         text-gray-300 hover:text-yellow-100
                     {{ /if }}" data-active="{{ if current_uri == url }}true{{ else }}false{{ /if }}">
-                        <span>{{ title }}</span>
+                        <span>{{ jaar }}</span>
 
                         {{ if lustrum }}
                         <span class="inline-flex items-center shrink-0 ml-1" title="Lustrum {{ lustrum_jaar }}">

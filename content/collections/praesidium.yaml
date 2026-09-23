@@ -3,7 +3,8 @@ icon: groups
 template: praesidium/show
 layout: layout
 revisions: false
-route: '/praesidium/{title}'
+title_format: 'Praesidium {jaar}'
+route: '/praesidium/{jaar}'
 sort_dir: asc
 date_behavior:
   past: null
