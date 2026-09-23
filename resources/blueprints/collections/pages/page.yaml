@@ -6,14 +6,6 @@ tabs:
       -
         fields:
           -
-            handle: title
-            field:
-              type: text
-              required: true
-              validate:
-                - required
-              display: 'SEO Title'
-          -
             handle: content
             field:
               type: markdown
@@ -44,6 +36,27 @@ tabs:
             field:
               type: list
               display: 'Pagina Titel'
+      -
+        display: SEO
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: 'Title (OUD)'
+          -
+            handle: seo_title
+            field:
+              type: text
+              display: Titel
+          -
+            handle: seo_description
+            field:
+              type: textarea
+              display: Beschrijving
   sidebar:
     display: Sidebar
     sections:

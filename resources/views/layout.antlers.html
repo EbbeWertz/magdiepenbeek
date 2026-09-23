@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title ?? 'Mater Artes Gymnastica' }} | MAG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover" />
+    {{ partial:seo}}
+    
     <link rel="icon" type="image/x-icon" href="{{ asset:favicon.ico }}">
 
     {{ vite src="resources/css/site.css|resources/js/site.js" }}

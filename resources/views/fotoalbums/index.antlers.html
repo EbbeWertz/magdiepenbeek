@@ -205,7 +205,6 @@
                     "title": {{ title | json }},
                     "datum": "{{ maand ? '{{ maand }} ' : '' }}{{ jaar }}",
                     "fotos": [
-                        { "url": "{{ cover }}", "caption": "Omslagfoto" },
                         {{ fotos }}
                             { "url": "{{ url }}", "caption": {{ caption ? (caption | json) : '""' }} }{{ if !last }},{{ /if }}
                         {{ /fotos }}
@@ -275,7 +274,7 @@
 
         <!-- ONDERBALK MET ROUGHNOTATION BLADER-KNOPPEN -->
         <div class="mt-4 flex items-center justify-between px-2 sm:px-4 font-chalk-thin">
-            <button id="modal-prev-btn" type="button" class="inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
+            <button id="modal-prev-btn" type="button" class="cursor-pointer inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
                 <i class="fa-solid fa-arrow-left text-red-500"></i>
                 <span class="tracking-wide hidden sm:inline">Vorige pagina's</span>
                 <span class="tracking-wide sm:hidden">Vorige</span>
@@ -283,7 +282,7 @@
 
             <span id="modal-spread-counter" class="text-white text-xs sm:text-sm font-bold tracking-wider"></span>
 
-            <button id="modal-next-btn" type="button" class="inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
+            <button id="modal-next-btn" type="button" class="cursor-pointer inline-flex items-center gap-1.5 sm:gap-3 px-2 sm:px-4 py-1 bg-transparent text-amber-100 text-sm sm:text-lg font-bold transition-transform hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 disabled:cursor-not-allowed">
                 <span class="tracking-wide hidden sm:inline">Volgende pagina's</span>
                 <span class="tracking-wide sm:hidden">Volgende</span>
                 <i class="fa-solid fa-arrow-right text-sky-400"></i>
